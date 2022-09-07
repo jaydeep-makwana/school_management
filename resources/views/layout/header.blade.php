@@ -3,7 +3,7 @@
     <!-- Sidebar -->
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
         <div class="position-sticky">
-            <div class="list-group list-group-flush mx-3 mt-4">
+            <div class="list-group list-group-flush mx-3 mt-2">
                 <a href="{{ url('dashboard') }}" class="list-group-item list-group-item-action py-2 ripple"
                     aria-current="true">
                     <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
@@ -18,7 +18,7 @@
     <!-- Sidebar -->
 
     <!-- Navbar -->
-    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top p-0">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Toggle button -->
@@ -29,7 +29,7 @@
 
             <!-- Brand -->
             <a class="navbar-brand" href="#">
-                <img src="{{ asset('images/angel.png') }}" height="40" alt="" loading="lazy" />
+                <img src="{{ asset('images/angel.png') }}" height="40" alt="something went wrong" />
             </a>
 
             <!-- Right links -->
@@ -54,8 +54,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
                         id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ asset('images/admin.png') }}" class="rounded-circle" height="30" alt=""
-                            loading="lazy" />
+                        <img src="{{ asset('images/admin.png') }}" class="rounded-circle img-thumbnail" width="35" alt="something went wrong"/>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="#">My profile</a></li>

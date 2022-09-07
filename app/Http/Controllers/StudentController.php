@@ -17,9 +17,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-       $students = Student::with('courses')->get();
+        $students = Student::with('courses')->get();
 
-        return view('students.index',compact('students'));
+        return view('students.index', compact('students'));
     }
 
     /**
@@ -30,8 +30,8 @@ class StudentController extends Controller
     public function create()
     {
         $courses = course::all();
-        
-        return view('students.create',compact('courses'));
+
+        return view('students.create', compact('courses'));
     }
 
     /**
@@ -63,7 +63,7 @@ class StudentController extends Controller
             'Net_Fees' => 'required|numeric',
             'Join_Date' => 'required',
             "parent_name" => "required",
-            "parent_contact" => "required|digits:10|numeric",
+            "parent_contact" => "required|numeric|digits:10",
             "parent_occupation" => "required",
         ]);
 
@@ -106,7 +106,9 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        $student = Student::with('courses')->find($id);
+
+        return view('students.profile', compact('student'));
     }
 
     /**
