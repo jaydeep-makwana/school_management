@@ -15,26 +15,27 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id('id');
-            $table->string('Full_Name',100);
+            $table->string('Full_Name');
             $table->text('Address');
             $table->bigInteger('Contact_No');
-            $table->date('BOD');
-            $table->string('gender');
+            $table->date('DOB');
+            $table->enum('gender',['M','F']);
             $table->string('Qualification');
             $table->string('Occupation');
             $table->string('Counselling_By');
-            $table->string('Course');
+            $table->foreignId('course_id')->references('id')->on('courses');
             $table->string('Authorisation');
             $table->integer('Fees');
-            $table->string('Duration');
-            $table->string('Discount');
+            $table->date('start');
+            $table->date('end');
+            $table->integer('Discount')->nullable();
+            $table->string('Discount_Offer')->nullable();
             $table->time('start_time');
             $table->time('end_time');
             $table->integer('Net_Fees');
-            $table->string('Discount_Offer');
             $table->date('Join_Date');
             $table->string('parent_Name');
-            $table->string('parent_Contact');
+            $table->bigInteger('parent_Contact');
             $table->string('parent_Occupation');
             $table->timestamps();
         });

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\course;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\AssignOp\BitwiseOr;
 
 class StudentController extends Controller
 {
@@ -14,7 +17,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+       $students = Student::with('courses')->get();
+
+        return view('students.index',compact('students'));
     }
 
     /**
@@ -24,7 +29,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $courses = course::all();
+        
+        return view('students.create',compact('courses'));
     }
 
     /**
@@ -39,18 +46,20 @@ class StudentController extends Controller
             'Full_Name' => 'required',
             'Address' => 'required',
             'ContactNo' => 'required|numeric|digits:10',
-            'BOD' => 'required|date',
+            'DOB' => 'required|date',
             'gender' => 'required',
             'cast' => 'required',
             'Qualification' => 'required',
             'Occupation' => 'required',
             'Counselling_By' => 'required',
-            'Course' => 'required',
+            'course_id' => 'required',
             'Authorisation' => 'required',
             'Fees' => 'required|numeric',
-            'Duration' => 'required',
+            'start' => 'required',
+            'end' => 'required',
             'start_time' => 'required',
             'end_time' => 'required',
+            'discount' => 'nullable|numeric',
             'Net_Fees' => 'required|numeric',
             'Join_Date' => 'required',
             "parent_name" => "required",
@@ -63,16 +72,17 @@ class StudentController extends Controller
             'Full_Name' => $request->input('Full_Name'),
             'Address' => $request->input('Address'),
             'Contact_No' => $request->input('ContactNo'),
-            'BOD' => $request->input('BOD'),
+            'DOB' => $request->input('DOB'),
             'gender' => $request->input('gender'),
             'Qualification' => $request->input('Qualification'),
             'Occupation' => $request->input('Occupation'),
             'Counselling_By' => $request->input('Counselling_By'),
             //   course detail 
-            'Course' => $request->input('Course'),
+            'course_id' => $request->input('course_id'),
             'Authorisation' => $request->input('Authorisation'),
             'Fees' => $request->input('Fees'),
-            'Duration' => $request->input('Duration'),
+            'start' => $request->input('start'),
+            'end' => $request->input('end'),
             'Discount' => $request->input('Discount'),
             'start_time' => $request->input('start_time'),
             'end_time' => $request->input('end_time'),
@@ -85,7 +95,7 @@ class StudentController extends Controller
             'parent_Occupation' => $request->input('parent_occupation'),
         ]);
 
-        return redirect()->back();
+        return redirect(route('students.index'));
     }
 
     /**

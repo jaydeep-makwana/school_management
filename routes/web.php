@@ -29,10 +29,13 @@ Route::middleware(AdminLogout::class)->group(function () {
         return view('dashboard.dashboard');
     });
 
-    Route::view('add-student', 'students.add_student');
-    Route::post('students', [StudentController::class, 'store'])->name('students');
-});
 
+
+    
+    Route::get('students', [StudentController::class, 'index'])->name('students.index');
+    Route::get('add-student', [StudentController::class, 'create'])->name('students.create');
+    Route::post('students', [StudentController::class, 'store'])->name('students.store');
+});
 
 
 

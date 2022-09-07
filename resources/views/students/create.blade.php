@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-    <div class="container mt-5">
+    <div class="mt-5">
 
-        <form action="{{ route('students') }}" method="POST" class="border shadow-lg">
+        <form action="{{ route('students.store') }}" method="POST" class="border shadow-lg">
             @csrf
             <div class="row w-100 p-2">
                 <div class="col-lg-4">
@@ -45,10 +45,10 @@
 
                     <div class="form-group  col-sm-12">
                         <label for="inputDate" class="form-check-label">Date Of Birth</label>
-                        <input type="date" placeholder="Date Of Birth" name="BOD" class="form-control"
-                            value="{{ old('BOD') }}">
+                        <input type="date" placeholder="Date Of Birth" name="DOB" class="form-control"
+                            value="{{ old('DOB') }}">
                         <span class="text-danger">
-                            @error('BOD')
+                            @error('DOB')
                                 {{ $message }}
                             @enderror
                         </span>
@@ -57,14 +57,14 @@
                     <div class="form-group">
                         <label for="">Gender :</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="male" value="male"
-                                @if (old('gender') == 'male') checked @endif name="gender">
+                            <input class="form-check-input" type="radio" id="male" value="M"
+                                @if (old('gender') == 'M') checked @endif name="gender">
                             <label class="form-check-label" for="male">Male</label>
                         </div>
 
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="female" value="female"
-                                @if (old('gender') == 'female') checked @endif name="gender">
+                            <input class="form-check-input" type="radio" id="female" value="F"
+                                @if (old('gender') == 'F') checked @endif name="gender">
                             <label class="form-check-label" for="female">Female</label>
                         </div>
 
@@ -142,16 +142,16 @@
                 <div class="col-lg-4">
                     <div class="form-group">
 
-                        <label for="Course" class="form-check-label">Course</label>
-                        <select name="Course" class="form-control" id="Course">
-                            <option value="php" selected>PHP</option>
-                            {{-- @foreach ($data as $info)
-                <option value="{{$info->courseName}}" @if (old('Course') == $info->courseName) selected @endif>{{$info->courseName}}</option>
-                @endforeach --}}
+                        <label for="course" class="form-check-label">course</label>
+                        <select name="course_id" class="form-control" id="course">
+                            <option value="" selected disabled>-- Select Course</option>
+                            @foreach ($courses as $course)
+                <option value="{{$course->id}}" @if (old('course_id') == $course->id) selected @endif>{{$course->courseName}}</option>
+                @endforeach
                         </select>
 
                         <span class="text-danger">
-                            @error('Course')
+                            @error('course_id')
                                 {{ $message }}
                             @enderror
                         </span>
@@ -182,11 +182,20 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="inputDuration" class="form-check-label">Duration</label>
-                        <input type="text" placeholder="Duration" name="Duration" class="form-control"
-                            value="{{ old('Duration') }}">
+                        <label for="inputStart" class="form-check-label">Start</label>
+                        <input type="date" name="start" class="form-control"
+                            value="{{ old('start') }}">
                         <span class="text-danger">
-                            @error('Duration')
+                            @error('start')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                       
+                        <label for="inputEnd" class="form-check-label">Finished</label>
+                        <input type="date" name="end" class="form-control"
+                            value="{{ old('end') }}">
+                        <span class="text-danger">
+                            @error('end')
                                 {{ $message }}
                             @enderror
                         </span>
@@ -200,8 +209,13 @@
 
                     <div class="form-group">
                         <label for="inputDiscount" class="form-check-label">Discount</label>
-                        <input type="text" placeholder="Discount (Optional)" name="Discount" class="form-control"
-                            value="{{ old('Discount') }}">
+                        <input type="text" placeholder="Discount (Optional)" name="discount" class="form-control"
+                            value="{{ old('discount') }}">
+                            <span class="text-danger">
+                                @error('discount')
+                                    {{ $message }}
+                                @enderror
+                            </span>
                     </div>
 
                     <div class="form-group">
@@ -289,6 +303,8 @@
                     <div class="col-6 text-center mb-4 " style="margin-top:15%;">
                         <input type="submit" value="Submit" class="btn btn-primary">
                         <input type="reset" value="Reset" class="btn btn-secondary">
+                        <a href="{{ route('students.index') }}" class="btn btn-light"
+        aria-current="true">Back</a>
 
                     </div>
                 </div>
