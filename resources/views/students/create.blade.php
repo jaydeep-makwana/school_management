@@ -12,43 +12,43 @@
             <div class="row w-100 p-2">
                 <div class="col-lg-4">
                     <div class="form-floating mb-3">
-                        <input type="text" placeholder="Full Name" name="Full_Name" class="form-control"
-                            value="{{ old('Full_Name') }}">
+                        <input type="text" placeholder="Full Name" name="full_name" class="form-control"
+                            value="{{ old('full_name') }}">
                         <label for="inputName" class="form-check-label">Full Name</label>
                         <span class="text-danger">
-                            @error('Full_Name')
+                            @error('full_name')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
 
                     <div class="form-floating mb-3 col-sm-12">
-                        <textarea name="Address" id="" placeholder="Address" class="form-control">{{ old('Address') }}</textarea>
+                        <textarea name="address" id="" placeholder="Address" class="form-control">{{ old('address') }}</textarea>
                         <label for="inputAddress" class="form-check-label">Address</label>
                         <span class="text-danger">
-                            @error('Address')
+                            @error('address')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
 
                     <div class="form-floating mb-3 col-sm-12 ">
-                        <input type="text" placeholder="Contact No" name="ContactNo" class="form-control"
-                            value="{{ old('ContactNo') }}">
+                        <input type="text" placeholder="Contact No" name="contact_no" class="form-control"
+                            value="{{ old('contact_no') }}">
                         <label for="inputContact" class="form-check-label">Contact No</label>
                         <span class="text-danger">
-                            @error('ContactNo')
+                            @error('contact_no')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
 
                     <div class="form-floating mb-3 col-sm-12">
-                        <input type="date" placeholder="Date Of Birth" name="DOB" class="form-control"
-                            value="{{ old('DOB') }}">
+                        <input type="date" placeholder="Date Of Birth" name="dob" class="form-control"
+                            value="{{ old('dob') }}">
                         <label for="inputDate" class="form-check-label">Date Of Birth</label>
                         <span class="text-danger">
-                            @error('DOB')
+                            @error('dob')
                                 {{ $message }}
                             @enderror
                         </span>
@@ -105,33 +105,33 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" placeholder="Qualification" name="Qualification" class="form-control"
-                            value="{{ old('Qualification') }}">
+                        <input type="text" placeholder="Qualification" name="qualification" class="form-control"
+                            value="{{ old('qualification') }}">
                         <label for="inputQualification" class="form-check-label">Qualification</label>
                         <span class="text-danger">
-                            @error('Qualification')
+                            @error('qualification')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" placeholder="Occupation" name="Occupation" class="form-control"
-                            value="{{ old('Occupation') }}">
+                        <input type="text" placeholder="Occupation" name="occupation" class="form-control"
+                            value="{{ old('occupation') }}">
                         <label for="inputOccupation" class="form-check-label">Occupation</label>
                         <span class="text-danger">
-                            @error('Occupation')
+                            @error('occupation')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" placeholder="Counselling By" name="Counselling_By" class="form-control"
-                            value="{{ old('Counselling_By') }}">
+                        <input type="text" placeholder="Counselling By" name="counselling_by" class="form-control"
+                            value="{{ old('counselling_by') }}">
                         <label for="inputCounselling_By" class="form-check-label">Counselling By</label>
                         <span class="text-danger">
-                            @error('Counselling_By')
+                            @error('counselling_by')
                                 {{ $message }}
                             @enderror
                         </span>
@@ -161,50 +161,50 @@
 
 
                     <div class="form-floating mb-3">
-                        <input type="text" placeholder="Authorisation" name="Authorisation" class="form-control"
-                            value="{{ old('Authorisation') }}">
+                        <input type="text" placeholder="Authorisation" name="authorisation" class="form-control"
+                            value="{{ old('authorisation') }}">
                         <label for="inputAuthorisation" class="form-check-label">Authorisation</label>
                         <span class="text-danger">
-                            @error('Authorisation')
+                            @error('authorisation')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" placeholder="Fees" name="Fees" class="form-control"
-                            value="{{ old('Fees') }}">
+                        <input type="text" placeholder="Fees" name="fees" class="form-control"
+                            value="{{ old('fees') }}">
                         <label for="inputFees" class="form-check-label">Fees</label>
                         <span class="text-danger">
-                            @error('Fees')
+                            @error('fees')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="date" name="start" class="form-control" value="{{ old('start') }}">
+                        <input type="date" name="start_date" class="form-control" value="{{ old('start_date') }}">
                         <label for="inputStart" class="form-check-label">Start Date</label>
                         <span class="text-danger">
-                            @error('start')
+                            @error('start_date')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="date" name="end" class="form-control" value="{{ old('end') }}">
+                        <input type="date" name="end_date" class="form-control" value="{{ old('end_date') }}">
                         <label for="inputEnd" class="form-check-label">Finish Date</label>
                         <span class="text-danger">
-                            @error('end')
+                            @error('end_date')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" placeholder="Discount Offer (Optional)" name="Discount_Offer"
-                            class="form-control" value="{{ old('Discount_Offer') }}">
+                        <input type="text" placeholder="Discount Offer (Optional)" name="discount_offer"
+                            class="form-control" value="{{ old('discount_offer') }}">
                         <label for="inputDiscount_Offer" class="form-check-label">Discount Offer</label>
                     </div>
 
@@ -221,9 +221,9 @@
 
                     <div class="form-group mb-3">
                         <label for="inputBatch" class="form-check-label">Start Batch Time</label>
-                        <input type="time" name="start_time" class="form-control" value="{{ old('start_time') }}">
+                        <input type="time" name="start_batch_time" class="form-control" value="{{ old('start_batch_time') }}">
                         <span class="text-danger">
-                            @error('start_time')
+                            @error('start_batch_time')
                                 {{ $message }}
                             @enderror
                         </span>
@@ -231,31 +231,31 @@
 
                     <div class="form-group mb-3">
                         <label for="inputBatch" class="form-check-label">End Batch Time</label>
-                        <input type="time" name="end_time" class="form-control" value="{{ old('end_time') }}">
+                        <input type="time" name="end_batch_time" class="form-control" value="{{ old('end_batch_time') }}">
                         <span class="text-danger">
-                            @error('end_time')
+                            @error('end_batch_time')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" placeholder="Net Amount" name="Net_Fees" class="form-control"
-                            value="{{ old('Net_Fees') }}">
+                        <input type="text" placeholder="Net Amount" name="net_fees" class="form-control"
+                            value="{{ old('net_fees') }}">
                         <label for="inputNet_Fees" class="form-check-label">Net Fees</label>
                         <span class="text-danger">
-                            @error('Net_Fees')
+                            @error('net_fees')
                                 {{ $message }}
                             @enderror
                         </span>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="date" placeholder="Join_Date" name="Join_Date" class="form-control"
-                            value="{{ old('Join_Date') }}">
+                        <input type="date" placeholder="Join_Date" name="join_date" class="form-control"
+                            value="{{ old('join_date') }}">
                         <label for="inputJoin_Date" class="form-check-label">Join Date :</label>
                         <span class="text-danger">
-                            @error('Join_Date')
+                            @error('join_date')
                                 {{ $message }}
                             @enderror
                         </span>
