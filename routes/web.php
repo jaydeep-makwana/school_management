@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminLogin;
@@ -25,73 +27,19 @@ Route::get('logout', [UserController::class, 'logout']);
 
 Route::middleware(AdminLogout::class)->group(function () {
 
-    Route::get('dashboard', function () {
-        return view('dashboard.dashboard');
-    });
+    Route::get('dashboard', [DashboardController::class, 'index']);
+
+
+    Route::get('courses', [ CourseController::class, 'index']);
+    Route::get('add-course', [ CourseController::class, 'create']);
+    Route::post('add-course', [ CourseController::class, 'store']);
+
     
     Route::get('students', [StudentController::class, 'index'])->name('students.index');
     Route::get('add-student', [StudentController::class, 'create'])->name('students.create');
+    Route::post('students', [StudentController::class, 'store'])->name('students.store');
     Route::get('student-profile/{id}', [StudentController::class, 'show'])->name('students.show');
     Route::get('edit-student/{id}', [StudentController::class, 'edit'])->name('students.edit');
     Route::put('update-student/{id}', [StudentController::class, 'update'])->name('students.update');
     Route::get('delete-student/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
-    Route::post('students', [StudentController::class, 'store'])->name('students.store');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- // Route::view('sidebar', 'Dashboard.sidebar');
- // Route::view('navbar', 'navbar');
- // Route::view('signup', 'admin_signup');
- // Route::view('login', 'login');
- 
- //birthday
- // Route::get('bDay', [operationController::class, 'find_bDay']);
- 
- //addmission form
- // Route::post('add_student', [admisssion_form::class, 'operation']);
- // Route::get('admission_form', [operationController::class, 'course_show']);
- 
- // course
- // Route::post('add_course', [operationController::class, 'course']);
- 
- 
- // Route::view('course', 'course_category');
- // display route
- // Route::get('admin_dashboard', [operationController::class, 'show']);
- //admin_login with signUP
- // Route::post('admin_signup', [AdminController::class, 'admin_login']);
- // Route::post('admin_login', [AdminController::class, 'login']);
- // Route::get('admin_logout', [logout::class, 'admin_logout']);
- 
- // update route
- // Route::get('edit/{id}', [operationController::class, 'edit']);
- // Route::put('edit/{id}', [operationController::class, 'update']);
- 
- // delete route
- // Route::get('delete/{id}', [operationController::class, 'destroy']);
- 
- // Payment
- // Route::post('add_payment', [payment::class, 'add_fees']);

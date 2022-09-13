@@ -12,6 +12,10 @@
                     aria-current="true">
                     <i class="bi bi-people-fill me-3"></i><span>Students</span>
                 </a>
+                <a href="{{ url('courses') }}" class="list-group-item list-group-item-action py-2 ripple"
+                    aria-current="true">
+                    <i class="bi bi-book-fill me-3"></i><span>Courses</span>
+                </a>
             </div>
         </div>
     </nav>
