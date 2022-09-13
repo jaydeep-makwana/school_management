@@ -29,7 +29,7 @@
 
             <!-- Brand -->
             <a class="navbar-brand" href="#">
-                <img src="{{ asset('images/angel.png') }}" height="40" alt="something went wrong" />
+                <img src="{{ asset('assets/images/angel.png') }}" height="40" alt="something went wrong" />
             </a>
 
             <!-- Right links -->
@@ -54,7 +54,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
                         id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ asset('images/admin.png') }}" class="rounded-circle img-thumbnail" width="35" alt="something went wrong"/>
+                        <img src="{{ asset('assets/images/admin.png') }}" class="rounded-circle img-thumbnail" width="35" alt="something went wrong"/>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="#">My profile</a></li>

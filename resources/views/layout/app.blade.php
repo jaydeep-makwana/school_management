@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
 </head>
 
 <body>
@@ -32,13 +33,19 @@
         </div>
     </main>
     <!--Main layout-->
-
+    
+     <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <!-- MDB -->
     <script type="text/javascript" src="{{ asset('assets/js/mdb.min.js') }}"></script>
     <!-- Custom scripts -->
     <script type="text/javascript" src="{{ asset('assets/js/admin.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/custom.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/student.js') }}"></script>
     <!-- bootstrap scripts -->
     <script type="text/javascript" src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+    {{-- sweet alert --}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

@@ -120,7 +120,9 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $courses = course::all();
+        $student = Student::findOrFail($id);
+        return view('students.create', compact('student', 'courses'));
     }
 
     /**
@@ -132,7 +134,61 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'full_name' => 'required',
+            'address' => 'required',
+            'contact_no' => 'required|numeric|digits:10',
+            'dob' => 'required|date',
+            'gender' => 'required',
+            'cast' => 'required',
+            'qualification' => 'required',
+            'occupation' => 'required',
+            'counselling_by' => 'required',
+            'course_id' => 'required',
+            'authorisation' => 'required',
+            'fees' => 'required|numeric',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'start_batch_time' => 'required',
+            'end_batch_time' => 'required',
+            'discount' => 'nullable|numeric',
+            'net_fees' => 'required|numeric',
+            'join_date' => 'required',
+            "parent_name" => "required",
+            "parent_contact" => "required|numeric|digits:10",
+            "parent_occupation" => "required",
+        ]);
+
+        DB::table('students')->where('id', $id)->update([
+            // personal detail
+            'full_name' => $request->input('full_name'),
+            'address' => $request->input('address'),
+            'contact_no' => $request->input('contact_no'),
+            'dob' => $request->input('dob'),
+            'gender' => $request->input('gender'),
+            'qualification' => $request->input('qualification'),
+            'occupation' => $request->input('occupation'),
+            'counselling_by' => $request->input('counselling_by'),
+            'cast' => $request->input('cast'),
+            //   course detail 
+            'course_id' => $request->input('course_id'),
+            'authorisation' => $request->input('authorisation'),
+            'fees' => $request->input('fees'),
+            'start_date' => $request->input('start_date'),
+            'end_date' => $request->input('end_date'),
+            'discount' => $request->input('discount'),
+            'start_batch_time' => $request->input('start_batch_time'),
+            'end_batch_time' => $request->input('end_batch_time'),
+            'net_fees' => $request->input('net_fees'),
+            'discount_offer' => $request->input('discount_offer'),
+            'join_date' => $request->input('join_date'),
+            //   parents detail 
+            'parent_Name' => $request->input('parent_name'),
+            'parent_contact' => $request->input('parent_contact'),
+            'parent_occupation' => $request->input('parent_occupation'),
+        ]);
+
+        return redirect(route('students.index'));
     }
 
     /**
@@ -141,8 +197,10 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Request $request)
+    { 
+        Student::find($request->id)->delete();
+
+        return response()->json(['success', 'deleted successfully']);
     }
 }

@@ -28,13 +28,13 @@ Route::middleware(AdminLogout::class)->group(function () {
     Route::get('dashboard', function () {
         return view('dashboard.dashboard');
     });
-
-
-
     
     Route::get('students', [StudentController::class, 'index'])->name('students.index');
     Route::get('add-student', [StudentController::class, 'create'])->name('students.create');
     Route::get('student-profile/{id}', [StudentController::class, 'show'])->name('students.show');
+    Route::get('edit-student/{id}', [StudentController::class, 'edit'])->name('students.edit');
+    Route::put('update-student/{id}', [StudentController::class, 'update'])->name('students.update');
+    Route::get('delete-student/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
     Route::post('students', [StudentController::class, 'store'])->name('students.store');
 });
 
