@@ -17,8 +17,8 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th><a href=""></a>Course Name</th>
-                    <th>Action</th>
+                    <th>Course Name</th>
+                    <th colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,8 +27,10 @@
                         <td>{{ $course->id }}</td>
                         <td>{{ $course->courseName }}</td>
 
+                        <td class="w-0"><a href="{{ url('edit-course', $course->id) }}" data-id="{{ $course->id }}"><i
+                                    class="bi bi-pencil-square text-success fs-5"></i></a></td>
                         <td class="w-0"><a type="button" data-id="{{ $course->id }}"><i
-                                    class="bi bi-trash3-fill text-danger fs-5 border-none"></i></a></td>
+                                    class="bi bi-trash3-fill text-danger fs-5"></i></a></td>
                     </tr>
                 @endforeach
             </tbody>

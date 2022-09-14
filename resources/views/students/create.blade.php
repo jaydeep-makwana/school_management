@@ -83,28 +83,28 @@
                 <div class="form-group mb-3">
                     <label for=""> Cast :</label>
                     <div class="form-check form-check-inline">
-                        <input type="radio" class="form-check-input" name="cast" id="SC" value="SC"
-                        @isset($student){{ $student->cast === 'SC' ? 'checked' : '' }}@endisset
-                            @if (old('cast') == 'SC') checked @endif>
-                        <label for="SC" class="form-check-label">SC</label>
+                        <input type="radio" class="form-check-input" name="cast" id="sc" value="sc"
+                        @isset($student){{ $student->cast === 'sc' ? 'checked' : '' }}@endisset
+                            @if (old('cast') == 'sc') checked @endif>
+                        <label for="sc" class="form-check-label">SC</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="radio" class="form-check-input" name="cast" id="ST" value="ST"
-                        @isset($student){{ $student->cast === 'ST' ? 'checked' : '' }}@endisset
-                            @if (old('cast') == 'ST') checked @endif>
-                        <label for="ST" class="form-check-label">ST</label>
+                        <input type="radio" class="form-check-input" name="cast" id="st" value="st"
+                        @isset($student){{ $student->cast === 'st' ? 'checked' : '' }}@endisset
+                            @if (old('cast') == 'st') checked @endif>
+                        <label for="st" class="form-check-label">ST</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="radio" class="form-check-input" name="cast" id="OBC" value="OBC"
-                        @isset($student){{ $student->cast === 'OBC' ? 'checked' : '' }}@endisset
-                            @if (old('cast') == 'OBC') checked @endif>
-                        <label for="OBC" class="form-check-label">OBC</label>
+                        <input type="radio" class="form-check-input" name="cast" id="obc" value="obc"
+                        @isset($student){{ $student->cast === 'obc' ? 'checked' : '' }}@endisset
+                            @if (old('cast') == 'obc') checked @endif>
+                        <label for="obc" class="form-check-label">OBC</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="radio" class="form-check-input" name="cast" id="Gen" value="General"
-                        @isset($student){{ $student->cast === 'General' ? 'checked' : '' }}@endisset
-                            @if (old('cast') == 'Gen') checked @endif>
-                        <label for="Gen" class="form-check-label">Gen</label>
+                        <input type="radio" class="form-check-input" name="cast" id="general" value="general"
+                        @isset($student){{ $student->cast === 'general' ? 'checked' : '' }}@endisset
+                            @if (old('cast') == 'general') checked @endif>
+                        <label for="general" class="form-check-label">GENERAL</label>
                     </div>
                     <span class="text-danger">
                         @error('cast')

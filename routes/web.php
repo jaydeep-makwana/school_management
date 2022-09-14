@@ -33,6 +33,8 @@ Route::middleware(AdminLogout::class)->group(function () {
     Route::get('courses', [ CourseController::class, 'index']);
     Route::get('add-course', [ CourseController::class, 'create']);
     Route::post('add-course', [ CourseController::class, 'store']);
+    Route::get('edit-course/{id}', [ CourseController::class, 'edit']);
+    Route::put('update-course/{id}', [ CourseController::class, 'update']);
 
     
     Route::get('students', [StudentController::class, 'index'])->name('students.index');

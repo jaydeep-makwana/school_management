@@ -18,7 +18,7 @@
 
         <div class="form-floating mb-3 mt-3">
             <input type="text" placeholder="Full Name" name="course_name" class="form-control"
-                value="{{ isset($course) ? $course->course_name : old('course_name') }}">
+                value="{{ isset($course) ? $course->courseName : old('course_name') }}">
             <label for="inputName" class="form-check-label">Course Name</label>
             <span class="text-danger">
                 @error('course_name')
@@ -27,7 +27,7 @@
             </span>
         </div>
 
-<button type="submit" class="btn btn-primary">Add Course</button>
+<button type="submit" class="btn btn-primary">{{ isset($course) ? 'Update Course' : 'Add Courses' }}</button>
 <a href="{{ url('courses') }}" class="btn btn-secondary">Back</a>
 
 
