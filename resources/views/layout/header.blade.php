@@ -16,6 +16,10 @@
                     aria-current="true">
                     <i class="bi bi-book-fill me-3"></i><span>Courses</span>
                 </a>
+                <a href="{{ url('fees') }}" class="list-group-item list-group-item-action py-2 ripple"
+                    aria-current="true">
+                    <i class="bi bi-wallet-fill me-3"></i><span>Fees</span>
+                </a>
             </div>
         </div>
     </nav>
@@ -62,7 +66,6 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="#">My profile</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
                         <li><a class="dropdown-item" href="{{ url('logout') }}">Logout</a></li>
                     </ul>
                 </li>

@@ -29,12 +29,10 @@
                     <tr id="studentRow{{ $student->id }}">
                         <td>{{ $student->id }}</td>
                         <td>{{ $student->full_name }}</td>
-                        @if ($student->gender == "M")
-                        
-                        <td><i class="bi bi-gender-male text-primary"></i> Male</td>
+                        @if ($student->gender == 'M')
+                            <td><i class="bi bi-gender-male text-primary"></i> Male</td>
                         @else
-                        <td><i class="bi bi-gender-female text-pink"></i> Female</td>
-                            
+                            <td><i class="bi bi-gender-female text-pink"></i> Female</td>
                         @endif
                         <td>{{ $student->courses->courseName }}</td>
                         <td>{{ $student->start_batch_time }} <span> To </span> {{ $student->end_batch_time }}</td>
@@ -48,5 +46,9 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+
+    <div class="mx-auto w-fit-content">
+        {{ $students->links() }}
     </div>
 @endsection

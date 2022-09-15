@@ -14,34 +14,40 @@ class StudentFactory extends Factory
      */
     public function definition()
     {
-        $gender = ['M', 'F'];
         $qualification = ['10th', '12th', 'BCA'];
-        $cast = ['SC', 'OBC', 'ST', 'GEN'];
-        $courses = Course::get('id');
-        $course =  json_decode($courses, true);
+        $cast = ['sc', 'obc', 'st', 'general'];
+        $gender = ['M', 'F'];
+
+        $courses = Course::all();
+        $courses = $courses->pluck('id');
+
+        $totalCourse = $courses->count();
+
+        $fees = rand(10000,100000);
+        $discount = rand(1000,10000);
 
         return [
             'full_name' => $this->faker->name(),
             'address' => $this->faker->address(),
-            'contact_no' => 9563265323 ,
+            'contact_no' => rand(8000000000, 9999999999),
             'dob' => $this->faker->date(),
-            'gender' => array_rand($gender),
-            'cast' => array_rand($cast),
-            'qualification' => array_rand($$qualification),
+            'gender' => $gender[array_rand($gender)],
+            'cast' => $cast[array_rand($cast)],
+            'qualification' => $qualification[array_rand($qualification)],
             'occupation' => $this->faker->jobTitle(),
             'counselling_by' => $this->faker->name(),
-            'course_id' => array_rand($course),
+            'course_id' => $courses[rand(0, $totalCourse - 1)],
             'authorisation' => $this->faker->name(),
-            'fees' => 5323,
+            'fees' => $fees,
             'start_date' => $this->faker->date(),
             'end_date' => $this->faker->date(),
             'start_batch_time' => $this->faker->time(),
             'end_batch_time' => $this->faker->time(),
-            'discount' => 53,
-            'net_fees' => 5323,
+            'discount' => $discount,
+            'net_fees' => $fees - $discount,
             'join_date' => $this->faker->date(),
             "parent_name" => $this->faker->name(),
-            "parent_contact" =>9563265323,
+            "parent_contact" => rand(8000000000, 9999999999),
             "parent_occupation" => $this->faker->jobTitle(),
         ];
     }

@@ -17,8 +17,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::with('courses')->get();
-
+        $students = Student::with('courses')->paginate(10);
+       
         return view('students.index', compact('students'));
     }
 
@@ -169,7 +169,7 @@ class StudentController extends Controller
             'qualification' => $request->input('qualification'),
             'occupation' => $request->input('occupation'),
             'counselling_by' => $request->input('counselling_by'),
-            'cast' => $request->input('cast'),
+            'cast' => $request->input(' '),
             //   course detail 
             'course_id' => $request->input('course_id'),
             'authorisation' => $request->input('authorisation'),
@@ -198,7 +198,7 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
-    { 
+    {
         Student::find($request->id)->delete();
 
         return response()->json(['success', 'deleted successfully']);

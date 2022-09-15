@@ -18,7 +18,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
+    
+    <link rel="stylesheet" href="{{ asset('assets/css/admin.lte.css') }}" />
+    
 </head>
 
 <body>
@@ -35,7 +37,7 @@
     <!--Main layout-->
     
      <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="{{ asset('assets/js/jquery-3.6.1.min.js') }}"></script>
     <!-- MDB -->
     <script type="text/javascript" src="{{ asset('assets/js/mdb.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/admin.js') }}"></script>

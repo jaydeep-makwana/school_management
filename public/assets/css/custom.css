@@ -5,3 +5,7 @@
 .text-pink{
     color: rgb(226, 123, 233);
 }
+
+.w-fit-content{
+    width: fit-content;
+}

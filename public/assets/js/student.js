@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    
+
     $('.delete-student').on('click', function () {
         swal({
             title: "Are you sure?",
@@ -15,11 +15,20 @@ $(document).ready(function () {
                     url: 'delete-student/' + id,
                     type: 'GET',
                     success: function (response) {
-                         $('#studentRow'+id).remove();
+                        $('#studentRow' + id).remove();
                     },
                 });
             }
         });
 
     });
+
+    $('.fees').on('keyup', function () {
+        $('.net-fees').val($(this).val());
+    })
+    
+    $('.discount').on('keyup', function () {
+        $('.net-fees').val($('.fees').val() - $(this).val())
+    })
+
 });

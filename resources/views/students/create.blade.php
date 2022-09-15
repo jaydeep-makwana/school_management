@@ -181,8 +181,8 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" placeholder="Fees" name="fees" class="form-control"
-                        value="{{ isset($student) ? $student->fees : old('fees') }}">
+                    <input type="text" placeholder="Fees" name="fees" class="form-control fees"
+                        value="{{ isset($student) ? $student->fees : old('fees') }}" id="inputFees">
                     <label for="inputFees" class="form-check-label">Fees</label>
                     <span class="text-danger">
                         @error('fees')
@@ -221,8 +221,8 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" placeholder="Discount (Optional)" name="discount" class="form-control"
-                        value="{{ isset($student) ? $student->discount : old('discount') }}">
+                    <input type="text" placeholder="Discount (Optional)" name="discount" class="form-control discount"
+                        value="{{ isset($student) ? $student->discount : old('discount') }}" id="inputDiscount">
                     <label for="inputDiscount" class="form-check-label">Discount</label>
                     <span class="text-danger">
                         @error('discount')
@@ -254,7 +254,7 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" placeholder="Net Fees" name="net_fees" class="form-control"
+                    <input type="text" disabled placeholder="Net Fees" name="net_fees" class="form-control net-fees"
                         value="{{ isset($student) ? $student->net_fees : old('net_fees') }}">
                     <label for="inputNet_Fees" class="form-check-label">Net Fees</label>
                     <span class="text-danger">
