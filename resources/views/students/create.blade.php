@@ -254,7 +254,7 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" disabled placeholder="Net Fees" name="net_fees" class="form-control net-fees"
+                    <input type="text" readonly placeholder="Net Fees" name="net_fees" class="form-control net-fees"
                         value="{{ isset($student) ? $student->net_fees : old('net_fees') }}">
                     <label for="inputNet_Fees" class="form-check-label">Net Fees</label>
                     <span class="text-danger">

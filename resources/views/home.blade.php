@@ -6,20 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" >
+    <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" >
     <title>Home</title>
-    <style>
-        html,
-        body {
-            height: 100%;
-            width: 100%;
-        }
-
-        footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-        }
-    </style>
 </head>
 
 <body>
@@ -27,8 +15,8 @@
 
     <div class="container-fluid h-100">
         <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <img src="{{ asset('images/angel.png') }}" alt="">
+            <div class="container-fluid mt-2">
+                <img src="{{ asset('assets/images/angel.png') }}" width="10%" alt="">
             </div>
         </nav>
         <div class="row d-flex justify-content-center align-items-center mt-5">
@@ -93,23 +81,8 @@
 
     </div>
 
-
-
-
-
-
-
-
-
 </body>
 
 </html>
-
-
-
-
-
-
-
 
  

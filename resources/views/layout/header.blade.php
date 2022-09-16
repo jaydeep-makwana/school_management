@@ -4,19 +4,19 @@
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
         <div class="position-sticky">
             <div class="list-group list-group-flush mx-3 mt-2">
-                <a href="{{ url('dashboard') }}" class="list-group-item list-group-item-action py-2 ripple"
+                <a href="{{ url('dashboard') }}" class="list-group-item list-group-item-action py-2 ripple {{ Request::is('dashboard') ? 'active' : ''}}"
                     aria-current="true">
                     <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
                 </a>
-                <a href="{{ route('students.index') }}" class="list-group-item list-group-item-action py-2 ripple"
+                <a href="{{ route('students.index') }}" class="list-group-item list-group-item-action py-2 ripple {{ Request::is('students*') ? 'active' : ''}}"
                     aria-current="true">
                     <i class="bi bi-people-fill me-3"></i><span>Students</span>
                 </a>
-                <a href="{{ url('courses') }}" class="list-group-item list-group-item-action py-2 ripple"
+                <a href="{{ route('courses.index') }}" class="list-group-item list-group-item-action py-2 ripple {{ Request::is('courses*') ? 'active' : ''}}"
                     aria-current="true">
                     <i class="bi bi-book-fill me-3"></i><span>Courses</span>
                 </a>
-                <a href="{{ url('fees') }}" class="list-group-item list-group-item-action py-2 ripple"
+                <a href="" class="list-group-item list-group-item-action py-2 ripple"
                     aria-current="true">
                     <i class="bi bi-wallet-fill me-3"></i><span>Fees</span>
                 </a>
@@ -62,7 +62,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
                         id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ asset('assets/images/admin.png') }}" class="rounded-circle img-thumbnail" width="35" alt="something went wrong"/>
+                        <img src="{{ asset('assets/images/admin.png') }}" class="rounded-circle img-thumbnail"
+                            width="35" alt="something went wrong" />
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="#">My profile</a></li>

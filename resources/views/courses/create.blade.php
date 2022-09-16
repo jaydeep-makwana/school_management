@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form action="{{ isset($course) ? url('update-course', $course->id) : url('add-course') }}" method="POST"
+    <form action="{{ isset($course) ? route('courses.update', $course->id) : route('courses.store') }}" method="POST"
         class="border shadow-lg p-3 w-25 text-center mx-auto mt-5   ">
         <h1 class="text-center m-1">{{ isset($course) ? 'Edit Course' : 'Add Course' }}</h1>
         @csrf
@@ -28,7 +28,7 @@
         </div>
 
 <button type="submit" class="btn btn-primary">{{ isset($course) ? 'Update Course' : 'Add Courses' }}</button>
-<a href="{{ url('courses') }}" class="btn btn-secondary">Back</a>
+<a href="{{ route('courses.index') }}" class="btn btn-secondary">Back</a>
 
 
 
