@@ -5,9 +5,6 @@
 @endsection
 
 @section('content')
-@livewireStyles
-<livewire:counter /> 
-@livewireScripts
     <div class="table-responsive  container">
         <div class="contaier">
             <div class="row">
