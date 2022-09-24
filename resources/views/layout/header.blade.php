@@ -6,7 +6,7 @@
             <div class="list-group list-group-flush mx-3 mt-2">
                 <a href="{{ url('dashboard') }}" class="list-group-item list-group-item-action py-2 ripple {{ Request::is('dashboard') ? 'active' : ''}}"
                     aria-current="true">
-                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
                 </a>
                 <a href="{{ route('students.index') }}" class="list-group-item list-group-item-action py-2 ripple {{ Request::is('students*') ? 'active' : ''}}"
                     aria-current="true">

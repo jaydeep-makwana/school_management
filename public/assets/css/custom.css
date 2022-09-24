@@ -9,3 +9,7 @@
 .w-fit-content{
     width: fit-content;
 }
+
+input::-webkit-inner-spin-button{
+     -webkit-appearance: none; 
+}

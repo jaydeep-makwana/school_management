@@ -26,9 +26,27 @@ $(document).ready(function () {
     $('.fees').on('keyup', function () {
         $('.net-fees').val($(this).val());
     })
-    
+
     $('.discount').on('keyup', function () {
         $('.net-fees').val($('.fees').val() - $(this).val())
     })
+
+    $(document).on('keyup', '#searchInput', function () {
+
+      
+
+            $.ajax({
+                url: 'students-search/'+ $(this).val(),
+                type: 'GET',
+                success: function (response) {
+                     console.log(response);
+                }
+            });
+      
+
+    });
+
+ 
+
 
 });

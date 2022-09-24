@@ -45,6 +45,7 @@ Route::middleware(AdminLogout::class)->group(function () {
         Route::get('edit-student/{id}', [StudentController::class, 'edit'])->name('students.edit');
         Route::put('update-student/{id}', [StudentController::class, 'update'])->name('students.update');
         Route::get('delete-student/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
+        Route::get('students-search/{value}', [StudentController::class, 'searchStudent']);
     });
 
 });

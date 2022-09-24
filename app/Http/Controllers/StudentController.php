@@ -55,10 +55,10 @@ class StudentController extends Controller
             'course_id' => 'required',
             'authorisation' => 'required',
             'fees' => 'required|numeric',
-            'start_date' => 'required',
-            'end_date' => 'required',
-            'start_batch_time' => 'required',
-            'end_batch_time' => 'required',
+            'start_date' => 'required|before:end_date',
+            'end_date' => 'required|after:start_date',
+            'start_batch_time' => 'required|before:end_batch_time',
+            'end_batch_time' => 'required|after:start_batch_time',
             'discount' => 'nullable|numeric',
             'join_date' => 'required',
             "parent_name" => "required",
@@ -146,10 +146,10 @@ class StudentController extends Controller
             'course_id' => 'required',
             'authorisation' => 'required',
             'fees' => 'required|numeric',
-            'start_date' => 'required',
-            'end_date' => 'required',
-            'start_batch_time' => 'required',
-            'end_batch_time' => 'required',
+            'start_date' => 'required|before:end_date',
+            'end_date' => 'required|after:start_date',
+            'start_batch_time' => 'required|before:end_batch_time',
+            'end_batch_time' => 'required|after:start_batch_time',
             'discount' => 'nullable|numeric',
             'join_date' => 'required',
             "parent_name" => "required",
@@ -200,5 +200,11 @@ class StudentController extends Controller
         Student::find($request->id)->delete();
 
         return response()->json(['success', 'deleted successfully']);
+    }
+
+    public function searchStudent($value)
+    {
+        $students = Student::with('courses')->paginate(10);
+         return view('students.index')->with(response()->json($students));
     }
 }

@@ -10,7 +10,7 @@
 
         <div class="row">
             <div class="col-xl-3 col-sm-6 col-12 mb-4">
-                <a href="{{ url('courses') }}" class="text-decoration-none text-dark">
+                <a href="{{ route('courses.index') }}" class="text-decoration-none text-dark">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between px-md-1">
@@ -30,24 +30,24 @@
             </div>
 
             <div class="col-xl-3 col-sm-6 col-12 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between px-md-1">
-                            <div>
-                                <h3 class="text-warning">{{ count($students) }}</h3>
-                                <p class="mb-0">Students</p>
+                <a href="{{ route('students.index') }}" class="text-decoration-none text-dark">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between px-md-1">
+                                <div>
+                                    <h3 class="text-warning">{{ count($students) }}</h3>
+                                    <p class="mb-0">Students</p>
+                                </div>
+                                <div class="align-self-center">
+                                    <i class="far fa-user text-warning fa-3x"></i>
+                                </div>
                             </div>
-                            <div class="align-self-center">
-                                <i class="far fa-user text-warning fa-3x"></i>
-                            </div>
-                        </div>
 
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
     </section>
-    <!--Section: Statistics with subtitles--> 
+    <!--Section: Statistics with subtitles-->
 @endsection
- 
-

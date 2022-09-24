@@ -5,11 +5,22 @@
 @endsection
 
 @section('content')
+@livewireStyles
+<livewire:counter /> 
+@livewireScripts
     <div class="table-responsive  container">
         <div class="contaier">
-            <div class="d-flex justify-content-end">
-                <div class="m-2">
-                    <a href="{{ route('students.create') }}" class="btn btn-primary" aria-current="true">Add Student</a>
+            <div class="row">
+
+                <div class="d-flex justify-content-start col-lg-6">
+                    <div class="m-2">
+                        <input class="form-control me-2" type="search" placeholder="Search By Name" aria-label="Search" id="searchInput">
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end col-lg-6">
+                    <div class="m-2">
+                        <a href="{{ route('students.create') }}" class="btn btn-primary" aria-current="true">Add Student</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -24,7 +35,7 @@
                     <th colspan="3">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="studentData">
                 @foreach ($students as $student)
                     <tr id="studentRow{{ $student->id }}">
                         <td>{{ $student->id }}</td>
