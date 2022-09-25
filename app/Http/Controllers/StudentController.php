@@ -16,10 +16,8 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $students = Student::with('courses')->paginate(10);
-       
-        return view('students.index', compact('students'));
+    { 
+        return view('students.index');
     }
 
     /**

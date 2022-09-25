@@ -5,8 +5,7 @@
 @endsection
 
 @section('content')
-    <form action="{{ isset($student) ? route('students.update', $student->id) : route('students.store') }}" method="POST"
-        class="border shadow-lg">
+    <form action="{{ isset($student) ? route('students.update', $student->id) : route('students.store') }}" method="POST">
         <h1 class="text-center m-1">{{ isset($student) ? 'Edit Student' : 'Add Student' }}</h1>
         @csrf
         @if (isset($student))
@@ -84,25 +83,25 @@
                     <label for=""> Cast :</label>
                     <div class="form-check form-check-inline">
                         <input type="radio" class="form-check-input" name="cast" id="sc" value="sc"
-                        @isset($student){{ $student->cast === 'sc' ? 'checked' : '' }}@endisset
+                            @isset($student){{ $student->cast === 'sc' ? 'checked' : '' }}@endisset
                             @if (old('cast') == 'sc') checked @endif>
                         <label for="sc" class="form-check-label">SC</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input type="radio" class="form-check-input" name="cast" id="st" value="st"
-                        @isset($student){{ $student->cast === 'st' ? 'checked' : '' }}@endisset
+                            @isset($student){{ $student->cast === 'st' ? 'checked' : '' }}@endisset
                             @if (old('cast') == 'st') checked @endif>
                         <label for="st" class="form-check-label">ST</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input type="radio" class="form-check-input" name="cast" id="obc" value="obc"
-                        @isset($student){{ $student->cast === 'obc' ? 'checked' : '' }}@endisset
+                            @isset($student){{ $student->cast === 'obc' ? 'checked' : '' }}@endisset
                             @if (old('cast') == 'obc') checked @endif>
                         <label for="obc" class="form-check-label">OBC</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input type="radio" class="form-check-input" name="cast" id="general" value="general"
-                        @isset($student){{ $student->cast === 'general' ? 'checked' : '' }}@endisset
+                            @isset($student){{ $student->cast === 'general' ? 'checked' : '' }}@endisset
                             @if (old('cast') == 'general') checked @endif>
                         <label for="general" class="form-check-label">GENERAL</label>
                     </div>
@@ -135,6 +134,13 @@
                     </span>
                 </div>
 
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+
                 <div class="form-floating mb-3">
                     <input type="text" placeholder="Counselling By" name="counselling_by" class="form-control"
                         value="{{ isset($student) ? $student->counselling_by : old('counselling_by') }}">
@@ -145,16 +151,15 @@
                         @enderror
                     </span>
                 </div>
-            </div>
 
-
-            <div class="col-lg-4">
                 <div class="form-floating mb-3">
 
                     <select name="course_id" class="form-control" id="course">
                         <option value="" selected disabled>Course</option>
                         @foreach ($courses as $course)
-                            <option value="{{ $course->id }}" @isset($student){{ $student->course_id === $course->id ? 'selected' : '' }}@endisset @if (old('course_id') == $course->id) selected @endif>
+                            <option value="{{ $course->id }}"
+                                @isset($student){{ $student->course_id === $course->id ? 'selected' : '' }}@endisset
+                                @if (old('course_id') == $course->id) selected @endif>
                                 {{ $course->courseName }}</option>
                         @endforeach
                     </select>
@@ -167,7 +172,6 @@
                     </span>
 
                 </div>
-
 
                 <div class="form-floating mb-3">
                     <input type="text" placeholder="Authorisation" name="authorisation" class="form-control"
@@ -221,7 +225,8 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="number" placeholder="Discount (Optional)" name="discount" class="form-control discount"
+                    <input type="number" placeholder="Discount (Optional)" name="discount"
+                        class="form-control discount"
                         value="{{ isset($student) ? $student->discount : old('discount') }}" id="inputDiscount">
                     <label for="inputDiscount" class="form-check-label">Discount</label>
                     <span class="text-danger">
@@ -230,6 +235,12 @@
                         @enderror
                     </span>
                 </div>
+
+
+            </div>
+
+
+            <div class="col-lg-4">
 
                 <div class="form-group mb-3">
                     <label for="inputBatch" class="form-check-label">Start Batch Time</label>
@@ -275,13 +286,9 @@
                     </span>
 
                 </div>
-            </div>
 
 
-            <div class="col-lg-4">
                 <!-- parents details -->
-
-
                 <div class="form-floating mb-3 mb-3">
                     <input type="text" placeholder="Full Name" name="parent_name" class="form-control"
                         value="{{ isset($student) ? $student->parent_name : old('parent_name') }}">
@@ -292,7 +299,7 @@
                         @enderror
                     </span>
                 </div>
-                
+
                 <div class="form-floating mb-3">
                     <input type="number" placeholder="Contact No" name="parent_contact" class="form-control"
                         value="{{ isset($student) ? $student->parent_contact : old('parent_contact') }}">
@@ -321,10 +328,10 @@
                         class="btn btn-primary">
 
                     @if (!isset($student))
-                        <input type="reset" value="Reset" class="btn btn-secondary">
+                        <input type="reset" value="Reset" class="btn btn-warning">
                     @endif
 
-                    <a href="{{ route('students.index') }}" class="btn btn-dark" aria-current="true">Back</a>
+                    <a href="{{ route('students.index') }}" class="btn btn-secondary" aria-current="true">Back</a>
 
                 </div>
             </div>

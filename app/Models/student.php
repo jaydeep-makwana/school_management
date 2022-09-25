@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
-
-    public function courses(){
-        return $this->hasOne(Course::class,'id','course_id');
+ 
+    public function courses()
+    {
+        return $this->hasOne(Course::class, 'id', 'course_id');
     }
 }
