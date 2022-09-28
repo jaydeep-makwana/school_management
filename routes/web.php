@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FeesController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminLogin;
 use App\Http\Middleware\AdminLogout;
+use App\Models\Fees;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +31,8 @@ Route::middleware(AdminLogout::class)->group(function () {
 
     Route::get('dashboard', [DashboardController::class, 'index']);
     
+    Route::get('birthdays', [CourseController::class, 'index'])->name('birthdays.index');
+
     Route::prefix('courses')->group(function () {
         Route::get('courses', [CourseController::class, 'index'])->name('courses.index');
         Route::get('add-course', [CourseController::class, 'create'])->name('courses.create');
@@ -48,4 +52,10 @@ Route::middleware(AdminLogout::class)->group(function () {
         Route::get('students-search/{value}', [StudentController::class, 'searchStudent']);
     });
 
+    Route::prefix('fees')->group(function () {
+        Route::get('fees', [FeesController::class, 'index'])->name('fees.index');
+        Route::get('pay-fees/{id}', [FeesController::class, 'create'])->name('fees.create');
+        Route::post('pay-fees/{id}', [FeesController::class, 'store'])->name('fees.store');
+        Route::get('transactions', [FeesController::class, 'show'])->name('fees.show');
+    });
 });

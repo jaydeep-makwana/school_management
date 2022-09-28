@@ -160,7 +160,7 @@
                             <option value="{{ $course->id }}"
                                 @isset($student){{ $student->course_id === $course->id ? 'selected' : '' }}@endisset
                                 @if (old('course_id') == $course->id) selected @endif>
-                                {{ $course->courseName }}</option>
+                                {{ $course->name }}</option>
                         @endforeach
                     </select>
 

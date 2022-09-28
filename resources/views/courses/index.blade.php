@@ -25,7 +25,7 @@
                 @foreach ($courses as $course)
                     <tr id="courseRow{{ $course->id }}">
                         <td>{{ $course->id }}</td>
-                        <td>{{ $course->courseName }}</td>
+                        <td>{{ $course->name }}</td>
 
                         <td class="w-0"><a href="{{ route('courses.edit', $course->id) }}" data-id="{{ $course->id }}"><i
                                     class="bi bi-pencil-square text-success fs-5"></i></a></td>

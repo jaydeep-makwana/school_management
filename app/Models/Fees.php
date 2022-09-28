@@ -2,17 +2,13 @@
 
 namespace App\Models;
 
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Student extends Model
+class Fees extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['student_id', 'amount', 'date'];
  
-    public function courses()
-    {
-        return $this->hasOne(Course::class, 'id', 'course_id');
-    }
-   
 }

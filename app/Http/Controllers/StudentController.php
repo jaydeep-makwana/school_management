@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\course;
+use App\Models\Fees;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +17,7 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
+    {
         return view('students.index');
     }
 
@@ -187,22 +188,4 @@ class StudentController extends Controller
         return redirect(route('students.index'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Request $request)
-    {
-        Student::find($request->id)->delete();
-
-        return response()->json(['success', 'deleted successfully']);
-    }
-
-    public function searchStudent($value)
-    {
-        $students = Student::with('courses')->paginate(10);
-         return view('students.index')->with(response()->json($students));
-    }
 }
