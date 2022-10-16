@@ -47,7 +47,7 @@
                     </div>
                 </a>
             </div>
-
+        </div>
     </section>
     <!--Section: Statistics with subtitles-->
 @endsection

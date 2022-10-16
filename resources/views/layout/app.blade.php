@@ -46,6 +46,7 @@
 <script type="text/javascript" src="{{ asset('assets/js/admin.js') }}"></script>
 <!-- Custom scripts -->
 <script type="text/javascript" src="{{ asset('assets/js/student.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/fees.js') }}"></script>
 <!-- bootstrap scripts -->
 <script type="text/javascript" src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
 {{-- sweet alert --}}

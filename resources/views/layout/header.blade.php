@@ -20,7 +20,7 @@
                     aria-current="true">
                     <i class="bi bi-wallet-fill me-3"></i><span>Fees</span>
                 </a>
-                <a href="{{ route('birthdays.index') }}" class="list-group-item list-group-item-action py-2 {{ Request::is('birthdays*') ? 'active' : ''}}"
+                <a href="{{ route('birthdays') }}" class="list-group-item list-group-item-action py-2 {{ Request::is('birthdays*') ? 'active' : ''}}"
                     aria-current="true">
                     <i class="bi bi-wallet-fill me-3"></i><span>Birthdays</span>
                 </a>

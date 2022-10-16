@@ -37,7 +37,7 @@ class StudentFactory extends Factory
             'occupation' => $this->faker->jobTitle(),
             'counselling_by' => $this->faker->name(),
             'course_id' => $courses[rand(0, $totalCourse - 1)],
-            'authorisation' => $this->faker->name(),
+            'authorization' => $this->faker->name(),
             'fees' => $fees,
             'start_date' => $this->faker->date(),
             'end_date' => $this->faker->date(),

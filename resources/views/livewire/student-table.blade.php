@@ -45,7 +45,7 @@
                                        class="bi bi-person-circle text-primary fs-5"></i></a></td>
                            <td class="w-0"><a href="{{ route('students.edit', $student->id) }}"><i
                                        class="bi bi-pencil-square text-success fs-5"></i></a></td>
-                           <td class="w-0"><a type="button" wire:click="deleteConfirmatoin({{ $student->id }})"><i
+                           <td class="w-0"><a type="button" wire:click="deleteConfirmation({{ $student->id }})"><i
                                        class="bi bi-trash3-fill text-danger fs-5"></i></a></td>
                        </tr>
                    @empty

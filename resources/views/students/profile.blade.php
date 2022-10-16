@@ -8,12 +8,12 @@
     <section>
         <div class="container">
 
-            <div class="contaier">
+            <div class="container">
 
                 <div class="d-flex justify-content-end">
                     <div class="m-2">
                         <a href="{{ route('students.edit',$student->id) }}" class="btn btn-success">Edit</a>
-                        <a href="{{ route('students.index') }}" class="btn btn-secondary">Back</a>
+                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a>
 
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                             @endif
 
                             <p>Date Of Birth : <span class="text-muted mb-1">{{ $student->dob }}</span></p>
-                            <p>Contect Number : <span class="text-muted mb-1">{{ $student->contact_no }}</span></p>
+                            <p>Contact Number : <span class="text-muted mb-1">{{ $student->contact_no }}</span></p>
                         </div>
                     </div>
 
@@ -111,7 +111,7 @@
                                             <p class="mb-0">Course :</p>
                                         </div>
                                         <div class="col-sm-6">
-                                            <p class="text-muted mb-0">{{ $student->courses->courseName }}</p>
+                                            <p class="text-muted mb-0">{{ $student->courses->name }}</p>
                                         </div>
                                     </div>
                                     <hr>
@@ -185,10 +185,10 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <p class="mb-0">Authorisation :</p>
+                                            <p class="mb-0">Authorization :</p>
                                         </div>
                                         <div class="col-sm-6">
-                                            <p class="text-muted mb-0">{{ $student->authorisation }}</p>
+                                            <p class="text-muted mb-0">{{ $student->authorization }}</p>
                                         </div>
                                     </div>
 

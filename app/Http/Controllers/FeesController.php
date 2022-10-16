@@ -15,8 +15,7 @@ class FeesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-
+    { 
         return view('fees.index');
     }
 
@@ -41,13 +40,14 @@ class FeesController extends Controller
     public function store(Request $request, $id)
     {
         $request->validate([
-            'amount' => 'required',
+            'amount' => 'required|lte:payable_fees',
+            'confirm_amount' => 'required|same:amount',
         ]);
 
         Fees::create([
             'student_id' => $id,
             'amount' => $request->amount,
-            'date' => Date('Y-m-d'),
+            'date' => $request->date,
         ]);
 
         return redirect(route('fees.index'));
@@ -56,6 +56,13 @@ class FeesController extends Controller
     public function show()
     {
         $transactions = Fees::orderBy('id', 'desc')->paginate(10);
-       return view('fees.transactions',compact('transactions'));
+        return view('fees.transactions', compact('transactions'));
+    }
+
+    public function destroy($id)
+    {
+        Fees::findOrFail($id)->delete();
+
+        return response()->json('Transaction deleted successfully!');
     }
 }

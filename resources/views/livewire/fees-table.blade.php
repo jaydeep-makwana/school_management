@@ -20,20 +20,40 @@
                     <th>Total Fees</th>
                     <th>Paid</th>
                     <th>Due</th>
-                    <th colspan="2">Action</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody id="studentData">
                 @forelse ($students as $student)
                     <tr>
                         <td>{{ $student->id }}</td>
-                        <td>{{ $student->full_name }}</td>
+                        <td><span class="m-2">{{ $student->full_name }}</span><a
+                                href="{{ route('students.show', $student->id) }}"><i
+                                    class="bi bi-info-circle text-warning"></i></a></td>
                         <td class="text-primary"><i class="bi bi-currency-rupee"></i>{{ $student->net_fees }}</td>
                         <td class="text-success"><i class="bi bi-currency-rupee"></i>{{ paidAmount($student->id) }}</td>
                         <td class="text-danger"><i class="bi bi-currency-rupee"></i>{{ dueAmount($student->id) }}</td>
-                        <td class="w-0"><a href="" wire:click="showTransactions({{ $student->id }})"data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-info-circle-fill"></i></a></td>  
-                        <td class="w-0"><a href="{{ route('fees.create', $student->id) }}" class="text-success"><i
-                                    class="bi bi-currency-rupee">Pay</i></a></td>
+                        @if (paidAmount($student->id) == 0)
+                            <td>
+                                <a type="button" class="m-1" href="{{ route('fees.create', $student->id) }}"
+                                    class="text-success"><i class="bi bi-plus-square fs-5 text-success"
+                                        title="Pay"></i></i></a>
+                            </td>
+                        @elseif(paidAmount($student->id) == $student->net_fees)
+                            <td>
+                                <i class="bi bi-check2-square fs-5 text-success" title="Paid"></i>
+                            </td>
+                        @else
+                            <td>
+                                <a type="button" class="m-1" wire:click="showTransactions({{ $student->id }})">
+                                    <i class="bi bi-info-square fs-5 text-primary" title="Fees History"></i></a>
+                                <a type="button" class="m-1" href="{{ route('fees.create', $student->id) }}"
+                                    class="text-success">
+                                    <i class="bi bi-plus-square fs-5 text-success" title="Pay"></i></i></a>
+                            </td>
+                        @endif
+
+
                     </tr>
                 @empty
                     <tr>
@@ -51,8 +71,9 @@
         {{ $students->links() }}
     </div>
 
+
     <!-- Transaction Modal -->
-    <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div wire:ignore.self class="modal fade" id="feesDetails" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
@@ -75,7 +96,8 @@
                                     <tr>
                                         <td>{{ $transaction->amount }}</td>
                                         <td>{{ $transaction->date }}</td>
-                                        <td class="w-0"><a type="button"><i
+                                        <td class="w-0"><a type="button"
+                                                wire:click="deleteConfirmation({{ $transaction->id }})"><i
                                                     class="bi bi-trash3-fill text-danger fs-5"></i></a></td>
                                     </tr>
                                 @endforeach
@@ -86,6 +108,5 @@
             </div>
         </div>
     </div>
-
 
 </div>

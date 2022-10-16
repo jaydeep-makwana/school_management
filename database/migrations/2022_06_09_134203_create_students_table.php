@@ -25,7 +25,7 @@ class CreateStudentsTable extends Migration
             $table->text('counselling_by');
             $table->text('cast');
             $table->foreignId('course_id')->references('id')->on('courses');
-            $table->text('authorisation');
+            $table->text('authorization');
             $table->integer('fees');
             $table->date('start_date');
             $table->date('end_date');
