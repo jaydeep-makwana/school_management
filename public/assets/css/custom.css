@@ -13,3 +13,17 @@
 input::-webkit-inner-spin-button{
      -webkit-appearance: none; 
 }
+
+#birthday-bg{
+    background-image:  url('../images/35-358146_m.jpg');
+    background-size: cover;
+}
+
+.birthday-img{
+    border-radius: 100%;
+}
+
+.bg-upcoming{
+    background-color: yellow;
+
+}

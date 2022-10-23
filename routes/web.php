@@ -57,8 +57,7 @@ Route::middleware(AdminLogout::class)->group(function () {
     });
     
     Route::prefix('birthdays')->group(function () {
-        Route::get('birthdays', [BirthdayController::class, 'todayBirthday'])->name('birthdays');
-        Route::get('upcoming-birthdays', [BirthdayController::class, 'upcomingBirthday']);
+        Route::get('birthdays', [BirthdayController::class, 'birthdays'])->name('birthdays');
     });
 
 });

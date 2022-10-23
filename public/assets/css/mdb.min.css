@@ -3159,7 +3159,7 @@ textarea.form-control-lg {
   transform: scale(.85) translateY(-.5rem) translateX(.15rem)
 }
 
-.input-group {
+.input-group-bs {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3172,8 +3172,8 @@ textarea.form-control-lg {
   width: 100%
 }
 
-.input-group>.form-control,
-.input-group>.form-select {
+.input-group-bs>.form-control,
+.input-group-bs>.form-select {
   position: relative;
   -webkit-box-flex: 1;
   -ms-flex: 1 1 auto;
@@ -3182,21 +3182,21 @@ textarea.form-control-lg {
   min-width: 0
 }
 
-.input-group>.form-control:focus,
-.input-group>.form-select:focus {
+.input-group-bs>.form-control:focus,
+.input-group-bs>.form-select:focus {
   z-index: 3
 }
 
-.input-group .bs-btn {
+.input-group-bs .bs-btn {
   position: relative;
   z-index: 2
 }
 
-.input-group .bs-btn:focus {
+.input-group-bs .bs-btn:focus {
   z-index: 3
 }
 
-.input-group-text {
+.input-group-bs-text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3215,38 +3215,38 @@ textarea.form-control-lg {
   border-radius: .25rem
 }
 
-.input-group-lg>.bs-btn,
-.input-group-lg>.form-control,
-.input-group-lg>.form-select,
-.input-group-lg>.input-group-text {
+.input-group-bs-lg>.bs-btn,
+.input-group-bs-lg>.form-control,
+.input-group-bs-lg>.form-select,
+.input-group-bs-lg>.input-group-bs-text {
   padding: .5rem 1rem;
   font-size: 1rem;
   border-radius: .3rem
 }
 
-.input-group-sm>.bs-btn,
-.input-group-sm>.form-control,
-.input-group-sm>.form-select,
-.input-group-sm>.input-group-text {
+.input-group-bs-sm>.bs-btn,
+.input-group-bs-sm>.form-control,
+.input-group-bs-sm>.form-select,
+.input-group-bs-sm>.input-group-bs-text {
   padding: .25rem .5rem;
   font-size: .775rem;
   border-radius: .2rem
 }
 
-.input-group-lg>.form-select,
-.input-group-sm>.form-select {
+.input-group-bs-lg>.form-select,
+.input-group-bs-sm>.form-select {
   padding-right: 3rem
 }
 
-.input-group.has-validation>.dropdown-toggle:nth-last-child(n+4),
-.input-group.has-validation>:nth-last-child(n+3):not(.dropdown-toggle):not(.dropdown-menu),
-.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3),
-.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+.input-group-bs.has-validation>.dropdown-toggle:nth-last-child(n+4),
+.input-group-bs.has-validation>:nth-last-child(n+3):not(.dropdown-toggle):not(.dropdown-menu),
+.input-group-bs:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3),
+.input-group-bs:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0
 }
 
-.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+.input-group-bs>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
   margin-left: -1px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0
@@ -4637,7 +4637,7 @@ fieldset:disabled .bs-btn {
   justify-content: flex-start
 }
 
-.bs-btn-toolbar .input-group {
+.bs-btn-toolbar .input-group-bs {
   width: auto
 }
 
@@ -15752,7 +15752,7 @@ i.flag-zw:before {
   margin: -.28rem -.5rem
 }
 
-.input-group>.form-control {
+.input-group-bs>.form-control {
   min-height: calc(2.08rem + 2px);
   height: calc(2.08rem + 2px);
   padding-top: .27rem;
@@ -15761,7 +15761,7 @@ i.flag-zw:before {
   transition: all .2s linear
 }
 
-.input-group>.form-control:focus {
+.input-group-bs>.form-control:focus {
   -webkit-transition: all .2s linear;
   transition: all .2s linear;
   border-color: #1266f1;
@@ -15770,24 +15770,24 @@ i.flag-zw:before {
   box-shadow: inset 0 0 0 1px #1266f1
 }
 
-.input-group-text {
+.input-group-bs-text {
   background-color: transparent;
   padding-top: .26rem;
   padding-bottom: .26rem
 }
 
-.input-group-lg>.form-control {
+.input-group-bs-lg>.form-control {
   height: calc(2.645rem + 2px);
   font-size: 1rem;
   padding-top: .33rem;
   padding-bottom: .33rem
 }
 
-.input-group-lg .input-group-text {
+.input-group-bs-lg .input-group-bs-text {
   font-size: 1rem
 }
 
-.input-group-sm>.form-control {
+.input-group-bs-sm>.form-control {
   min-height: calc(1.66rem + 2px);
   height: calc(1.66rem + 2px);
   font-size: .775rem;
@@ -15795,40 +15795,40 @@ i.flag-zw:before {
   padding-bottom: .33rem
 }
 
-.input-group-sm .input-group-text {
+.input-group-bs-sm .input-group-bs-text {
   font-size: .775rem;
   line-height: 1.6
 }
 
-.input-group.form-outline .input-group-text {
+.input-group-bs.form-outline .input-group-bs-text {
   border-left: 0
 }
 
-.input-group.form-outline input+.input-group-text {
+.input-group-bs.form-outline input+.input-group-bs-text {
   border: 0;
   border-left: 1px solid #bdbdbd
 }
 
-.input-group .form-outline:not(:first-child),
-.input-group .form-outline:not(:first-child) .form-notch-leading {
+.input-group-bs .form-outline:not(:first-child),
+.input-group-bs .form-outline:not(:first-child) .form-notch-leading {
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important
 }
 
-.input-group .form-outline:not(:last-child),
-.input-group .form-outline:not(:last-child) .form-notch-trailing {
+.input-group-bs .form-outline:not(:last-child),
+.input-group-bs .form-outline:not(:last-child) .form-notch-trailing {
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important
 }
 
-.input-group>[class*=bs-btn-outline-]+[class*=bs-btn-outline-] {
+.input-group-bs>[class*=bs-btn-outline-]+[class*=bs-btn-outline-] {
   border-left: 0
 }
 
-.input-group .invalid-feedback,
-.input-group .valid-feedback,
-.was-validated .input-group .invalid-feedback,
-.was-validated .input-group .valid-feedback {
+.input-group-bs .invalid-feedback,
+.input-group-bs .valid-feedback,
+.was-validated .input-group-bs .invalid-feedback,
+.was-validated .input-group-bs .valid-feedback {
   margin-top: 2.5rem
 }
 
@@ -15905,8 +15905,8 @@ i.flag-zw:before {
   margin-top: 0
 }
 
-.input-group .form-control.is-valid,
-.was-validated .input-group .form-control:valid {
+.input-group-bs .form-control.is-valid,
+.was-validated .input-group-bs .form-control:valid {
   margin-bottom: 0
 }
 
@@ -16070,8 +16070,8 @@ input[type=file].form-control.is-valid:focus-within~.form-file-label .form-file-
   margin-top: 0
 }
 
-.input-group .form-control.is-invalid,
-.was-validated .input-group .form-control:invalid {
+.input-group-bs .form-control.is-invalid,
+.was-validated .input-group-bs .form-control:invalid {
   margin-bottom: 0
 }
 

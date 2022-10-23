@@ -33,7 +33,7 @@
                    @forelse ($students as $student)
                        <tr id="studentRow{{ $student->id }}">
                            <td>{{ $student->id }}</td>
-                           <td>{{ $student->full_name }}</td>
+                           <td>{{ $student->dob }}</td>
                            @if ($student->gender == 'M')
                                <td><i class="bi bi-gender-male text-primary"></i> Male</td>
                            @else

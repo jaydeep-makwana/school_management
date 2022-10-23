@@ -174,11 +174,11 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" placeholder="Authorisation" name="authorisation" class="form-control"
-                        value="{{ isset($student) ? $student->authorisation : old('authorisation') }}">
-                    <label for="inputAuthorisation" class="form-check-label">Authorisation</label>
+                    <input type="text" placeholder="Authorization" name="authorization" class="form-control"
+                        value="{{ isset($student) ? $student->authorization : old('authorization') }}">
+                    <label for="inputauthorization" class="form-check-label">Authorization</label>
                     <span class="text-danger">
-                        @error('authorisation')
+                        @error('authorization')
                             {{ $message }}
                         @enderror
                     </span>

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Course;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Date;
 
 class StudentFactory extends Factory
 {
@@ -30,7 +31,8 @@ class StudentFactory extends Factory
             'full_name' => $this->faker->name(),
             'address' => $this->faker->address(),
             'contact_no' => rand(8000000000, 9999999999),
-            'dob' => $this->faker->date(),
+            // 'dob' => $this->faker->date(),
+            'dob' => Date('Y-m-d'),
             'gender' => $gender[array_rand($gender)],
             'cast' => $cast[array_rand($cast)],
             'qualification' => $qualification[array_rand($qualification)],

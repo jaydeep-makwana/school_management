@@ -4,25 +4,32 @@
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
         <div class="position-sticky">
             <div class="list-group list-group-flush mx-3 mt-2">
-                <a href="{{ url('dashboard') }}" class="list-group-item list-group-item-action py-2 {{ Request::is('dashboard') ? 'active' : ''}}"
+                <a href="{{ url('dashboard') }}"
+                    class="list-group-item list-group-item-action py-2 {{ Request::is('dashboard') ? 'active' : '' }}"
                     aria-current="true">
                     <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
                 </a>
-                <a href="{{ route('students.index') }}" class="list-group-item list-group-item-action py-2 {{ Request::is('students*') ? 'active' : ''}}"
+                <a href="{{ route('students.index') }}"
+                    class="list-group-item list-group-item-action py-2 {{ Request::is('students*') ? 'active' : '' }}"
                     aria-current="true">
                     <i class="bi bi-people-fill me-3"></i><span>Students</span>
                 </a>
-                <a href="{{ route('courses.index') }}" class="list-group-item list-group-item-action py-2 {{ Request::is('courses*') ? 'active' : ''}}"
+                <a href="{{ route('courses.index') }}"
+                    class="list-group-item list-group-item-action py-2 {{ Request::is('courses*') ? 'active' : '' }}"
                     aria-current="true">
                     <i class="bi bi-book-fill me-3"></i><span>Courses</span>
                 </a>
-                <a href="{{ route('fees.index') }}" class="list-group-item list-group-item-action py-2 {{ Request::is('fees*') ? 'active' : ''}}"
+                <a href="{{ route('fees.index') }}"
+                    class="list-group-item list-group-item-action py-2 {{ Request::is('fees*') ? 'active' : '' }}"
                     aria-current="true">
                     <i class="bi bi-wallet-fill me-3"></i><span>Fees</span>
                 </a>
-                <a href="{{ route('birthdays') }}" class="list-group-item list-group-item-action py-2 {{ Request::is('birthdays*') ? 'active' : ''}}"
+                <a href="{{ route('birthdays') }}"
+                    class="list-group-item list-group-item-action py-2 {{ Request::is('birthdays*') ? 'active' : '' }}"
                     aria-current="true">
                     <i class="bi bi-wallet-fill me-3"></i><span>Birthdays</span>
+                    <span class="badge bg-success m-1">{{ count(returnBirthdays()) }}</span>
+                    <span class="badge bg-warning m-1 text-dark">{{ count(returnUpcomingBirthdays()) }}</span>
                 </a>
             </div>
         </div>
