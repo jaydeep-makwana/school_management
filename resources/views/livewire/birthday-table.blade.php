@@ -2,20 +2,22 @@
     <div class="container">
 
         <div class="d-flex justify-content-end">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <button type="button" wire:click="todays()" class="btn btn-success position-relative">
+            <ul class="nav">
+                <li
+                    class="nav-item m-2 {{ !session('upcoming_birthdays') ? 'border-5 border-bottom border-success' : '' }}">
+                    <a type="button" wire:click="todays()" class="btn btn-success position-relative mb-1">
                         Today's Birthdays
                         <span
-                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ count(returnBirthdays()) }}</span>
-                    </button>
+                            class="position-absolute border border-2  border-success  top-0 start-100 translate-middle badge rounded-pill bg-white text-success">{{ count(returnBirthdays()) }}</span>
+                    </a>
                 </li>
-                <li class="nav-item ">
-                    <button type="button" wire:click="upcoming()" class="btn btn-warning position-relative ml-2">
+                <li
+                    class="nav-item m-2 {{ session('upcoming_birthdays') ? 'border-5 border-bottom border-warning' : '' }}">
+                    <a type="button" wire:click="upcoming()" class="btn btn-warning position-relative mb-1">
                         Upcoming Birthdays
                         <span
-                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ count(returnUpcomingBirthdays()) }}</span>
-                    </button>
+                            class="position-absolute border border-2  border-warning top-0 start-100 translate-middle badge rounded-pill bg-dark text-warning">{{ count(returnUpcomingBirthdays()) }}</span>
+                    </a>
                 </li>
 
             </ul>

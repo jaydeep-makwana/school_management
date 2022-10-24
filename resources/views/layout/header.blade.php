@@ -28,8 +28,10 @@
                     class="list-group-item list-group-item-action py-2 {{ Request::is('birthdays*') ? 'active' : '' }}"
                     aria-current="true">
                     <i class="bi bi-wallet-fill me-3"></i><span>Birthdays</span>
+                    @if (!Request::is('birthdays*'))
                     <span class="badge bg-success m-1">{{ count(returnBirthdays()) }}</span>
                     <span class="badge bg-warning m-1 text-dark">{{ count(returnUpcomingBirthdays()) }}</span>
+                    @endif
                 </a>
             </div>
         </div>

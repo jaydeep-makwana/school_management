@@ -9,7 +9,7 @@
 
     <link rel="icon" href="{{ asset('assets/images/logo.png') }}"/>
     <!-- Font Awesome -->
-    {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"/> --}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"/>
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="{{ asset('assets/css/css2.css') }}"/>
     <!-- MDB -->
@@ -19,7 +19,7 @@
     <!-- Bootstrap styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}"/>
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="{{ asset('assets/css/admin.lte.css') }}"/>
     @livewireStyles

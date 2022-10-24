@@ -12,7 +12,7 @@ class DashboardController extends Controller
    {
       $students = Student::all();
       $courses = Course::all();
-      
+
       return view('dashboard.dashboard', compact('students', 'courses'));
    }
 }
