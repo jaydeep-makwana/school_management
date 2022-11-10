@@ -22,7 +22,7 @@
                <thead>
                    <tr>
                        <th>ID</th>
-                       <th><a href=""></a>Name</th>
+                       <th>Name</th>
                        <th>Gender</th>
                        <th>Course</th>
                        <th>Batch Time</th>
@@ -31,8 +31,9 @@
                </thead>
                <tbody id="studentData">
                    @forelse ($students as $student)
-                       <tr id="studentRow{{ $student->id }}">
+                       <tr>
                            <td>{{ $student->id }}</td>
+                           <td>{{ $student->full_name }}</td>
                            <td>{{ $student->dob }}</td>
                            @if ($student->gender == 'M')
                                <td><i class="bi bi-gender-male text-primary"></i> Male</td>

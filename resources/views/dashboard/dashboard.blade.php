@@ -39,7 +39,7 @@
                                     <p class="mb-0">Students</p>
                                 </div>
                                 <div class="align-self-center">
-                                    <i class="far fa-user text-warning fa-3x"></i>
+                                    <i class="bi bi-people-fill me-3 text-warning fa-3x"></i>
                                 </div>
                             </div>
 

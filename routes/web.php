@@ -28,7 +28,7 @@ Route::get('logout', [UserController::class, 'logout']);
 Route::middleware(AdminLogout::class)->group(function () {
 
     Route::get('dashboard', [DashboardController::class, 'index']);
-    
+
     Route::prefix('courses')->group(function () {
         Route::get('courses', [CourseController::class, 'index'])->name('courses.index');
         Route::get('add-course', [CourseController::class, 'create'])->name('courses.create');
@@ -47,7 +47,7 @@ Route::middleware(AdminLogout::class)->group(function () {
         Route::get('delete-student/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
         Route::get('students-search/{value}', [StudentController::class, 'searchStudent']);
     });
-    
+
     Route::prefix('fees')->group(function () {
         Route::get('fees', [FeesController::class, 'index'])->name('fees.index');
         Route::get('pay-fees/{id}', [FeesController::class, 'create'])->name('fees.create');
@@ -55,9 +55,6 @@ Route::middleware(AdminLogout::class)->group(function () {
         Route::get('transactions', [FeesController::class, 'show'])->name('fees.show');
         Route::get('delete-transaction/{id}', [FeesController::class, 'destroy'])->name('fees.destroy');
     });
-    
-    Route::prefix('birthdays')->group(function () {
-        Route::get('birthdays', [BirthdayController::class, 'birthdays'])->name('birthdays');
-    });
 
+    Route::get('birthdays', [BirthdayController::class, 'birthdays'])->name('birthdays');
 });

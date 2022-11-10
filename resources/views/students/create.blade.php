@@ -13,9 +13,10 @@
         @endif
         <div class="row w-100 p-2">
             <div class="col-lg-4">
+                <h3 class="text-center">Personal Details</h3>
                 <div class="form-floating mb-3">
                     <input type="text" placeholder="Full Name" name="full_name" class="form-control"
-                        value="{{ isset($student) ? $student->full_name : old('full_name') }}">
+                        value="{{ old('full_name') ?? ($student->full_name ?? old('full_name')) }}">
                     <label for="inputName" class="form-check-label">Full Name</label>
                     <span class="text-danger">
                         @error('full_name')
@@ -25,7 +26,7 @@
                 </div>
 
                 <div class="form-floating mb-3 col-sm-12">
-                    <textarea name="address" id="" placeholder="Address" class="form-control">{{ isset($student) ? $student->address : old('address') }}</textarea>
+                    <textarea name="address" id="" placeholder="Address" class="form-control">{{ old('address') ?? ($student->address ?? old('address')) }}</textarea>
                     <label for="inputAddress" class="form-check-label">Address</label>
                     <span class="text-danger">
                         @error('address')
@@ -36,7 +37,7 @@
 
                 <div class="form-floating mb-3 col-sm-12 ">
                     <input type="number" placeholder="Contact No" name="contact_no" class="form-control"
-                        value="{{ isset($student) ? $student->contact_no : old('contact_no') }}">
+                        value="{{ old('contact_no') ?? ($student->contact_no ?? old('contact_no')) }}">
                     <label for="inputContact" class="form-check-label">Contact No</label>
                     <span class="text-danger">
                         @error('contact_no')
@@ -47,7 +48,7 @@
 
                 <div class="form-floating mb-3 col-sm-12">
                     <input type="date" placeholder="Date Of Birth" name="dob" class="form-control"
-                        value="{{ isset($student) ? $student->dob : old('dob') }}">
+                        value="{{ old('dob') ?? ($student->dob ?? old('dob')) }}">
                     <label for="inputDate" class="form-check-label">Date Of Birth</label>
                     <span class="text-danger">
                         @error('dob')
@@ -114,7 +115,7 @@
 
                 <div class="form-floating mb-3">
                     <input type="text" placeholder="Qualification" name="qualification" class="form-control"
-                        value="{{ isset($student) ? $student->qualification : old('qualification') }}">
+                        value="{{ old('qualification') ?? ($student->qualification ?? old('qualification')) }}">
                     <label for="inputQualification" class="form-check-label">Qualification</label>
                     <span class="text-danger">
                         @error('qualification')
@@ -125,7 +126,7 @@
 
                 <div class="form-floating mb-3">
                     <input type="text" placeholder="Occupation" name="occupation" class="form-control"
-                        value="{{ isset($student) ? $student->occupation : old('occupation') }}">
+                        value="{{ old('occupation') ?? ($student->occupation ?? old('occupation')) }}">
                     <label for="inputOccupation" class="form-check-label">Occupation</label>
                     <span class="text-danger">
                         @error('occupation')
@@ -135,15 +136,10 @@
                 </div>
 
 
-            </div>
-
-
-            <div class="col-lg-4">
-
 
                 <div class="form-floating mb-3">
                     <input type="text" placeholder="Counselling By" name="counselling_by" class="form-control"
-                        value="{{ isset($student) ? $student->counselling_by : old('counselling_by') }}">
+                        value="{{ old('counselling_by') ?? ($student->counselling_by ?? old('counselling_by')) }}">
                     <label for="inputCounselling_By" class="form-check-label">Counselling By</label>
                     <span class="text-danger">
                         @error('counselling_by')
@@ -151,6 +147,13 @@
                         @enderror
                     </span>
                 </div>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <h3 class="text-center">Course Details</h3>
 
                 <div class="form-floating mb-3">
 
@@ -175,7 +178,7 @@
 
                 <div class="form-floating mb-3">
                     <input type="text" placeholder="Authorization" name="authorization" class="form-control"
-                        value="{{ isset($student) ? $student->authorization : old('authorization') }}">
+                        value="{{ old('authorization') ?? ($student->authorization ?? old('authorization')) }}">
                     <label for="inputauthorization" class="form-check-label">Authorization</label>
                     <span class="text-danger">
                         @error('authorization')
@@ -186,7 +189,7 @@
 
                 <div class="form-floating mb-3">
                     <input type="number" placeholder="Fees" name="fees" class="form-control fees"
-                        value="{{ isset($student) ? $student->fees : old('fees') }}" id="inputFees">
+                        value="{{ old('fees') ?? ($student->fees ?? old('fees')) }}" id="inputFees">
                     <label for="inputFees" class="form-check-label">Fees</label>
                     <span class="text-danger">
                         @error('fees')
@@ -194,10 +197,11 @@
                         @enderror
                     </span>
                 </div>
-
+                
+                <h6>Duration :</h6>
                 <div class="form-floating mb-3">
                     <input type="date" name="start_date" class="form-control"
-                        value="{{ isset($student) ? $student->start_date : old('start_date') }}">
+                        value="{{ old('start_date') ?? ($student->start_date ?? old('start_date')) }}">
                     <label for="inputStart" class="form-check-label">Start Date</label>
                     <span class="text-danger">
                         @error('start_date')
@@ -208,7 +212,7 @@
 
                 <div class="form-floating mb-3">
                     <input type="date" name="end_date" class="form-control"
-                        value="{{ isset($student) ? $student->end_date : old('end_date') }}">
+                        value="{{ old('end_date') ?? ($student->end_date ?? old('end_date')) }}">
                     <label for="inputEnd" class="form-check-label">End Date</label>
                     <span class="text-danger">
                         @error('end_date')
@@ -220,14 +224,19 @@
                 <div class="form-floating mb-3">
                     <input type="text" placeholder="Discount Offer (Optional)" name="discount_offer"
                         class="form-control"
-                        value="{{ isset($student) ? $student->discount_offer : old('discount_offer') }}">
+                        value="{{ old('discount_offer') ?? ($student->discount_offer ?? old('discount_offer')) }}">
                     <label for="inputDiscount_Offer" class="form-check-label">Discount Offer</label>
+                    <span class="text-danger">
+                        @error('discount_offer')
+                            {{ $message }}
+                        @enderror
+                    </span>
                 </div>
 
                 <div class="form-floating mb-3">
                     <input type="number" placeholder="Discount (Optional)" name="discount"
                         class="form-control discount"
-                        value="{{ isset($student) ? $student->discount : old('discount') }}" id="inputDiscount">
+                        value="{{ old('discount') ?? ($student->discount ?? old('discount')) }}" id="inputDiscount">
                     <label for="inputDiscount" class="form-check-label">Discount</label>
                     <span class="text-danger">
                         @error('discount')
@@ -245,7 +254,7 @@
                 <div class="form-group mb-3">
                     <label for="inputBatch" class="form-check-label">Start Batch Time</label>
                     <input type="time" name="start_batch_time" class="form-control"
-                        value="{{ isset($student) ? $student->start_batch_time : old('start_batch_time') }}">
+                        value="{{ old('start_batch_time') ?? ($student->start_batch_time ?? old('start_batch_time')) }}">
                     <span class="text-danger">
                         @error('start_batch_time')
                             {{ $message }}
@@ -256,7 +265,7 @@
                 <div class="form-group mb-3">
                     <label for="inputBatch" class="form-check-label">End Batch Time</label>
                     <input type="time" name="end_batch_time" class="form-control"
-                        value="{{ isset($student) ? $student->end_batch_time : old('end_batch_time') }}">
+                        value="{{ old('end_batch_time') ?? ($student->end_batch_time ?? old('end_batch_time')) }}">
                     <span class="text-danger">
                         @error('end_batch_time')
                             {{ $message }}
@@ -266,7 +275,7 @@
 
                 <div class="form-floating mb-3">
                     <input type="number" readonly placeholder="Net Fees" name="net_fees" class="form-control net-fees"
-                        value="{{ isset($student) ? $student->net_fees : old('net_fees') }}">
+                        value="{{ old('net_fees') ?? ($student->net_fees ?? old('net_fees')) }}">
                     <label for="inputNet_Fees" class="form-check-label">Net Fees</label>
                     <span class="text-danger">
                         @error('net_fees')
@@ -277,7 +286,7 @@
 
                 <div class="form-floating mb-3">
                     <input type="date" placeholder="Join_Date" name="join_date" class="form-control"
-                        value="{{ isset($student) ? $student->join_date : old('join_date') }}">
+                        value="{{ old('join_date') ?? ($student->join_date ?? old('join_date')) }}">
                     <label for="inputJoin_Date" class="form-check-label">Join Date :</label>
                     <span class="text-danger">
                         @error('join_date')
@@ -287,11 +296,11 @@
 
                 </div>
 
-
+                <h3 class="text-center">Parents Details</h3>
                 <!-- parents details -->
                 <div class="form-floating mb-3 mb-3">
                     <input type="text" placeholder="Full Name" name="parent_name" class="form-control"
-                        value="{{ isset($student) ? $student->parent_name : old('parent_name') }}">
+                        value="{{ old('parent_name') ?? ($student->parent_name ?? old('parent_name')) }}">
                     <label for="inputName" class="form-check-label">Parent Name</label>
                     <span class="text-danger">
                         @error('parent_name')
@@ -302,7 +311,7 @@
 
                 <div class="form-floating mb-3">
                     <input type="number" placeholder="Contact No" name="parent_contact" class="form-control"
-                        value="{{ isset($student) ? $student->parent_contact : old('parent_contact') }}">
+                        value="{{ old('parent_contact') ?? ($student->parent_contact ?? old('parent_contact')) }}">
                     <label for="inputContact" class="form-check-label">Contact No</label>
                     <span class="text-danger">
                         @error('parent_contact')
@@ -313,7 +322,7 @@
 
                 <div class="form-floating mb-3">
                     <input type="text" placeholder="Occupation" name="parent_occupation" class="form-control"
-                        value="{{ isset($student) ? $student->parent_occupation : old('parent_occupation') }}">
+                        value="{{ old('parent_occupation') ?? ($student->parent_occupation ?? old('parent_occupation')) }}">
                     <label for="inputOccupation" class="form-check-label">Occupation</label>
                     <span class="text-danger">
                         @error('parent_occupation')

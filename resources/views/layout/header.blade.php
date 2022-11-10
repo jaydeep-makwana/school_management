@@ -1,7 +1,7 @@
 <!--Main Navigation-->
 <header>
     <!-- Sidebar -->
-    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar bg-white">
         <div class="position-sticky">
             <div class="list-group list-group-flush mx-3 mt-2">
                 <a href="{{ url('dashboard') }}"
@@ -27,10 +27,14 @@
                 <a href="{{ route('birthdays') }}"
                     class="list-group-item list-group-item-action py-2 {{ Request::is('birthdays*') ? 'active' : '' }}"
                     aria-current="true">
-                    <i class="bi bi-wallet-fill me-3"></i><span>Birthdays</span>
-                    @if (!Request::is('birthdays*'))
-                    <span class="badge bg-success m-1">{{ count(returnBirthdays()) }}</span>
-                    <span class="badge bg-warning m-1 text-dark">{{ count(returnUpcomingBirthdays()) }}</span>
+                    <i class="fa fa-birthday-cake fs-5 me-3"></i><span>Birthdays</span>
+                    @if (!Request::is('birthdays'))
+                        @if (count(returnBirthdays()) > 0)
+                            <span class="badge bg-success m-1">{{ count(returnBirthdays()) }}</span>
+                        @endif
+                        @if (count(returnUpcomingBirthdays()) > 0)
+                            <span class="badge bg-warning m-1 text-dark">{{ count(returnUpcomingBirthdays()) }}</span>
+                        @endif
                     @endif
                 </a>
             </div>

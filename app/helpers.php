@@ -34,14 +34,14 @@ function addDays($addDays)
 function daysToGo($dob)
 {
     if ($dob == addDays(1)) {
-        return '1 Days to go';
+        return '1 day to go';
     } elseif ($dob == addDays(2)) {
-        return '2 Days to go';
+        return '2 days to go';
     } elseif ($dob == addDays(3)) {
-        return '3 Days to go';
+        return '3 days to go';
     } elseif ($dob == addDays(4)) {
-        return '4 Days to go';
+        return '4 days to go';
     } else {
-        return '5 Days to go';
+        return '5 days to go';
     }
 }

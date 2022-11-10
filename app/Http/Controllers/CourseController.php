@@ -40,7 +40,20 @@ class CourseController extends Controller
     public function edit($id)
     {
         $course = course::find($id);
-     
-        return view('courses.create', compact( 'course'));
+
+        return view('courses.create', compact('course'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $request->validate([
+            'course_name' => 'required|unique:courses,name,'.$id,
+        ]);
+       
+        DB::table('courses')->where('id', $id)->update([
+            'name' => $request->course_name,
+        ]);
+
+        return  redirect(route('courses.index'));
     }
 }

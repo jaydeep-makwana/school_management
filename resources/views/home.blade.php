@@ -72,9 +72,11 @@
                     </div>
 
                 </form>
-            </div>
 
+            </div>
         </div>
+
+
 
         <footer class="text-center bg-primary text-light w-100 align-middle p-2">
             Copyright © 2022 Angel Multimedia Institute | Powered by Angel Multimedia Institute.

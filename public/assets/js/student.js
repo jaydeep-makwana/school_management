@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     window.addEventListener('delete-student', () => {
         swal({
-            title: "Delete this student?",
+            title: "Delete This Student?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
