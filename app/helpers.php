@@ -3,6 +3,7 @@
 use App\Models\Fees;
 use App\Models\Student;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Date;
 use SebastianBergmann\Type\NullType;
 
 function paidAmount($id)
@@ -16,14 +17,27 @@ function dueAmount($id)
     return $student->net_fees - paidAmount($id);
 }
 
-function returnUpcomingBirthdays($pagination = null)
+function returnUpcomingBirthdays($pagination = null, $search = null)
 {
+    if (!empty($search)) {
+
+        return Student::where('full_name', 'like', '%' . $search . '%')->whereBetween('dob', [addDays(1), addDays(5)])->orderBy('dob', 'asc')->paginate($pagination);
+    } else {
+
     return Student::whereBetween('dob', [addDays(1), addDays(5)])->orderBy('dob', 'asc')->paginate($pagination);
+    }
 }
 
-function returnBirthdays($pagination = null)
+function returnBirthdays($pagination = null, $search = null)
 {
-    return Student::where('dob', Date('Y-m-d'))->paginate($pagination);
+    if (!empty($search)) {
+
+        return Student::where('full_name', 'like', '%' . $search . '%')->where('dob', Date('Y-m-d'))->orderBy('dob', 'asc')
+            ->paginate($pagination);
+    } else {
+
+    return Student::where('dob', Date('Y-m-d'))->orderBy('dob', 'asc')->paginate($pagination);
+    }
 }
 
 function addDays($addDays)

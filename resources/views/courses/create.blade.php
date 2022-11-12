@@ -16,7 +16,7 @@
 
         <div class="form-floating mb-3 mt-3">
             <input type="text" placeholder="Full Name" name="course_name" class="form-control"
-                value="{{ old('course_name') ?? $course->name }}">
+                value="{{ old('course_name') ?? ($course->name ?? old('course_name')) }}">
             <label for="inputName" class="form-check-label">Course Name</label>
             <span class="text-danger">
                 @error('course_name')

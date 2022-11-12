@@ -2,8 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Student;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -13,6 +11,7 @@ class BirthdayTable extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $recordInOnePage = 20;
+    public $search;
 
     public function upcoming(Request $request)
     {
@@ -27,9 +26,9 @@ class BirthdayTable extends Component
     public function render()
     {
         if (session('upcoming_birthdays')) {
-            $students = returnUpcomingBirthdays($this->recordInOnePage);
+            $students = returnUpcomingBirthdays($this->recordInOnePage, $this->search);
         } else {
-            $students = returnBirthdays($this->recordInOnePage);
+            $students = returnBirthdays($this->recordInOnePage, $this->search);
         }
 
         return view('livewire.birthday-table', compact('students'));

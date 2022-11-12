@@ -30,10 +30,10 @@
                     <i class="fa fa-birthday-cake fs-5 me-3"></i><span>Birthdays</span>
                     @if (!Request::is('birthdays'))
                         @if (count(returnBirthdays()) > 0)
-                            <span class="badge bg-success m-1">{{ count(returnBirthdays()) }}</span>
+                            <span class="badge bg-success">{{  returnBirthdays()->total() }}</span>
                         @endif
                         @if (count(returnUpcomingBirthdays()) > 0)
-                            <span class="badge bg-warning m-1 text-dark">{{ count(returnUpcomingBirthdays()) }}</span>
+                            <span class="badge bg-warning text-dark">{{ returnUpcomingBirthdays()->total() }}</span>
                         @endif
                     @endif
                 </a>

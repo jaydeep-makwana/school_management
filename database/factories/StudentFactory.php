@@ -32,7 +32,7 @@ class StudentFactory extends Factory
             'address' => $this->faker->address(),
             'contact_no' => rand(8000000000, 9999999999),
             'dob' => $this->faker->date(),
-            // 'dob' => Date('Y-m-d'),
+            // 'dob' => addDays(4),
             'gender' => $gender[array_rand($gender)],
             'cast' => $cast[array_rand($cast)],
             'qualification' => $qualification[array_rand($qualification)],
