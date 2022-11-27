@@ -26,9 +26,9 @@ class BirthdayTable extends Component
     public function render()
     {
         if (session('upcoming_birthdays')) {
-            $students = returnUpcomingBirthdays($this->recordInOnePage, $this->search);
+            $students = returnUpcomingBirthdays($this->search);
         } else {
-            $students = returnBirthdays($this->recordInOnePage, $this->search);
+            $students = returnBirthdays($this->search);
         }
 
         return view('livewire.birthday-table', compact('students'));

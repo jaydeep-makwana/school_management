@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 class StudentTable extends Component
 {
     use WithPagination;
-    
+
     protected $paginationTheme = 'bootstrap';
     protected $listeners = ['deleteConfirmed' => 'deleteStudent'];
 
@@ -29,11 +29,7 @@ class StudentTable extends Component
 
     public function render()
     {
-        if (!empty($this->search)) {
-            $students = Student::with('courses')->where('full_name', 'like', '%' . $this->search . '%')->paginate(10);
-        } else {
-            $students = Student::with('courses')->paginate(10);
-        }
+        $students = Student::with('courses')->where('full_name', 'like', '%' . $this->search . '%')->paginate(10);
 
         return view('livewire.student-table', compact('students'));
     }

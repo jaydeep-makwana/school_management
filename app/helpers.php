@@ -3,6 +3,7 @@
 use App\Models\Fees;
 use App\Models\Student;
 use Carbon\Carbon;
+use Illuminate\Support\Arr;
 
 function paidAmount($id)
 {
@@ -12,30 +13,22 @@ function paidAmount($id)
 function dueAmount($id)
 {
     $student = Student::find($id);
+    
     return $student->net_fees - paidAmount($id);
 }
 
-function returnUpcomingBirthdays($pagination = null, $search = null)
+function returnUpcomingBirthdays($search = null)
 {
-    if (!empty($search)) {
-
-        return Student::where('full_name', 'like', '%' . $search . '%')->whereMonth('dob', '>=',month(1))->whereMonth('dob', '<=',month(5))->whereDay('dob', '>=', day(1))->whereDay('dob', '<=', day(5))->orderBy('dob', 'asc')->paginate($pagination);
-    } else {
-
-    return Student::whereMonth('dob', '>=',month(1))->whereMonth('dob', '<=',month(5))->whereDay('dob', '>=', day(1))->whereDay('dob', '<=', day(5))->orderBy('dob', 'asc')->paginate($pagination);
+    for ($i = 1; $i <= 5; $i++) {
+        $students[] = returnBirthdays($search, $i);
     }
+
+    return  Arr::collapse($students);
 }
 
-function returnBirthdays($pagination = null, $search = null)
+function returnBirthdays($search = null, $upcoming = 0)
 {
-    if (!empty($search)) {
-
-        return Student::where('full_name', 'like', '%' . $search . '%')->whereDay('dob', day())->whereMonth('dob', month())->orderBy('dob', 'asc')
-            ->paginate($pagination);
-    } else {
-
-    return Student::whereDay('dob', day())->whereMonth('dob', month())->orderBy('dob', 'asc')->paginate($pagination);
-    }
+    return Student::where('full_name', 'like', '%' . $search . '%')->whereDay('dob', day($upcoming))->whereMonth('dob', month($upcoming))->get();
 }
 
 function day($days = 0)
@@ -50,6 +43,7 @@ function month($days = 0)
 
 function daysToGo($dob)
 {
+    $dob = Carbon::parse($dob)->format('d');
     if ($dob == day(1)) {
         return '1 day to go';
     } elseif ($dob == day(2)) {

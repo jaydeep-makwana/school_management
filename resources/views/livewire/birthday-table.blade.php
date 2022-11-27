@@ -1,5 +1,5 @@
 <div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
 
             <div class="d-flex justify-content-start col-lg-6">
@@ -46,10 +46,9 @@
 
                     <div>
                         <h5 class="m-0 mt-1 text-dark">{{ $student->full_name }}</h5>
-                      {{  $student->dob}}
                     </div>
                     @if (session('upcoming_birthdays'))
-                        <div class="text-dark bg-upcoming fw-bold p-1 mt-1">
+                        <div class="text-primary bg-upcoming fw-bold p-1 mt-1">
                             {{ daysToGo($student->dob) }}
                         </div>
                     @endif
@@ -63,10 +62,6 @@
         </div>
 
 
-    </div>
-
-    <div class="mx-auto w-fit-content">
-        {{ $students->links() }}
     </div>
 
 </div>

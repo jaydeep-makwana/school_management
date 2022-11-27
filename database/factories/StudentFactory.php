@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Course;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class StudentFactory extends Factory
@@ -31,7 +32,7 @@ class StudentFactory extends Factory
             'address' => $this->faker->address(),
             'contact_no' => rand(8000000000, 9999999999),
             'dob' => $this->faker->date(),
-            // 'dob' => addDays(4),
+            // 'dob' => Carbon::now()->addDay(3)->toDateString(),
             'gender' => $gender[array_rand($gender)],
             'cast' => $cast[array_rand($cast)],
             'qualification' => $qualification[array_rand($qualification)],

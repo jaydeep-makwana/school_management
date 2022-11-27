@@ -19,11 +19,11 @@ class FeesTable extends Component
     public $deleteId;
 
     public function showTransactions($id)
-    {  
+    {
         $this->transactions = Fees::where('student_id', $id)->get();
         $this->dispatchBrowserEvent('open-modal');
     }
- 
+
     public function deleteConfirmation($id): void
     {
         $this->deleteId = $id;
@@ -32,17 +32,13 @@ class FeesTable extends Component
 
     public function deleteTransaction(): void
     {
-          Fees::find($this->deleteId)->delete();
-          $this->dispatchBrowserEvent('close-modal');
+        Fees::find($this->deleteId)->delete();
+        $this->dispatchBrowserEvent('close-modal');
     }
 
     public function render()
     {
-        if (!empty($this->search)) {
-            $students = Student::with('courses')->where('full_name', 'like', '%' . $this->search . '%')->paginate(10);
-        } else {
-            $students = Student::with('courses')->paginate(10);
-        }
+        $students = Student::with('courses')->where('full_name', 'like', '%' . $this->search . '%')->paginate(10);
 
         return view('livewire.fees-table', compact('students'));
     }

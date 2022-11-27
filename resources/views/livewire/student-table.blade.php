@@ -1,34 +1,34 @@
 <div>
-    <div class="table-responsive  container">
-        <div class="contaier">
-            <div class="row">
+    <div class="table-responsive container-fluid">
 
-                <div class="d-flex justify-content-start col-lg-6">
-                    <div class="m-2">
-                        <input wire:model="search" class="form-control me-2" type="search" placeholder="Search By Name">
-                    </div>
+        <div class="row">
+
+            <div class="d-flex justify-content-start col-lg-6">
+                <div class="m-2">
+                    <input wire:model="search" class="form-control me-2" type="search" placeholder="Search By Name">
                 </div>
-                   <div class="d-flex justify-content-end col-lg-6">
-                    <div class="mt-1 mr-2">
-                        <i class="bi bi-funnel fs-2" text-primar></i>
-                    </div>
-                       <div class="m-2">
-                           <a href="{{ route('students.create') }}" class="btn btn-primary" aria-current="true">Add
-                               Student</a>
-                       </div>
-                   </div>
-               </div>
-           </div>
-   
-   
-           <table class="table text-center align-middle">
-               <thead>
-                   <tr>
-                       <th>ID</th>
-                       <th>Name</th>
-                       <th>Gender</th>
-                       <th>Course</th>
-                       <th>Batch Time</th>
+            </div>
+            <div class="d-flex justify-content-end col-lg-6">
+                <div class="mt-1 mr-2">
+                    <i class="bi bi-funnel fs-2" text-primar></i>
+                </div>
+                <div class="m-2">
+                    <a href="{{ route('students.create') }}" class="btn btn-primary" aria-current="true">Add
+                        Student</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <table class="table text-center align-middle">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Course</th>
+                    <th>Batch Time</th>
                     <th>DOB</th>
                     <th colspan="3">Action</th>
                 </tr>
@@ -64,6 +64,7 @@
                 @endforelse
             </tbody>
         </table>
+
     </div>
     <div class="mx-auto w-fit-content">
         {{ $students->links() }}
