@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cookie;
 
 class UserController extends Controller
 {
@@ -81,36 +82,39 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-         
     }
 
-  
     public function login(Request $request)
     {
         $credentials = $request->validate([
             'email' => 'required',
             'password' => 'required'
+        ]);
 
-         ]);
+        if (Auth::attempt($credentials)) {
 
-          if (Auth::attempt($credentials)) {
-             
-            session()->put('email','admin');
-             return redirect('/dashboard');
-                
-         }
+            session()->put('id', Auth::id());
+            if ($request->remember_me) {
+                Cookie::queue('id', session('id'), 60 * 24 * 30);
+            }
 
-         return back()->withErrors([
+            return redirect('/dashboard');
+        }
+
+        return back()->withErrors([
             'email' => 'The provided credentials do not match our records',
-         ]);
-
+        ]);
     }
 
-  
-    public function logout()
+    public function logout(Request $request)
     {
-        if (session()->has('email')) {
-            session()->pull('email');
+        if (session()->has('id')) {
+            session()->pull('id');
+
+            if (Cookie::get('id')) {
+                Cookie::queue(Cookie::forget('id'));
+            }
+
             return redirect('/');
         }
     }

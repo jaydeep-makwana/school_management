@@ -41,6 +41,13 @@ function month($days = 0)
     return Carbon::now()->addDays($days)->format('m');
 }
 
+function timeFormat($time)
+{
+    return Carbon::parse($time)->format('g:i A');
+}
+
+
+
 function daysToGo($dob)
 {
     $dob = Carbon::parse($dob)->format('d');

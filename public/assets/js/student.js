@@ -20,5 +20,5 @@ $(document).ready(function () {
     $('.discount').on('keyup', function () {
         $('.net-fees').val($('.fees').val() - $(this).val())
     });
-
+    
 });

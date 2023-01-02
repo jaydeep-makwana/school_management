@@ -16,7 +16,7 @@ class AdminLogout
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!session()->has('email')) {
+        if (!session()->has('id')) {
             return redirect('/');
         }
         return $next($request);

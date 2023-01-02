@@ -1,25 +1,28 @@
 <div>
     <div class="table-responsive container-fluid">
-
+{{   $startsAt  .$endsAt }}
         <div class="row">
 
             <div class="d-flex justify-content-start col-lg-6">
                 <div class="m-2">
-                    <input wire:model="search" class="form-control me-2" type="search" placeholder="Search By Name">
+                    <input wire:model="search" class="form-control me-2" type="search" placeholder="Search By Name" title="Search By Name">
+                </div>
+
+                <div class="m-2">
+                    <input wire:model="startsAt" class="form-control me-2" type="time" title="From Start">
+                </div>
+
+                <div class="m-2">
+                    <input wire:model="endsAt" class="form-control me-2" type="time" title="To Finish">
                 </div>
             </div>
             <div class="d-flex justify-content-end col-lg-6">
-                <div class="mt-1 mr-2">
-                    <i class="bi bi-funnel fs-2" text-primar></i>
-                </div>
                 <div class="m-2">
                     <a href="{{ route('students.create') }}" class="btn btn-primary" aria-current="true">Add
                         Student</a>
                 </div>
             </div>
         </div>
-
-
 
         <table class="table text-center align-middle">
             <thead>
@@ -44,7 +47,8 @@
                             <td><i class="bi bi-gender-female text-pink"></i> Female</td>
                         @endif
                         <td>{{ $student->courses->name }}</td>
-                        <td>{{ $student->start_batch_time }} <span> To </span> {{ $student->end_batch_time }}</td>
+                        <td>{{ timeFormat($student->start_batch_time) }} <span> To </span>
+                            {{ timeFormat($student->end_batch_time) }}</td>
                         <td>{{ $student->dob }}</td>
                         <td class="w-0"><a href="{{ route('students.show', $student->id) }}"><i
                                     class="bi bi-person-circle text-primary fs-5"></i></a></td>
