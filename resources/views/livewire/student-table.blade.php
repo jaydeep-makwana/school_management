@@ -1,20 +1,33 @@
 <div>
     <div class="table-responsive container-fluid">
-{{   $startsAt  .$endsAt }}
+
         <div class="row">
 
             <div class="d-flex justify-content-start col-lg-6">
                 <div class="m-2">
-                    <input wire:model="search" class="form-control me-2" type="search" placeholder="Search By Name" title="Search By Name">
+                    <input wire:model="search" class="form-control me-2" type="search" placeholder="Search By Name"
+                        title="Search By Name">
                 </div>
 
                 <div class="m-2">
                     <input wire:model="startsAt" class="form-control me-2" type="time" title="From Start">
                 </div>
-
                 <div class="m-2">
                     <input wire:model="endsAt" class="form-control me-2" type="time" title="To Finish">
                 </div>
+
+                <div class="m-2">
+                    <select wire:model="courseId" name="course_id" class="form-control" id="course" title="Sort By Course">
+                        <option value="" selected>Sort By Course</option>
+                        @foreach ($courses as $course)
+                            <option value="{{ $course->id }}"
+                                @isset($student){{ $student->course_id === $course->id ? 'selected' : '' }}@endisset
+                                @if (old('course_id') == $course->id) selected @endif>
+                                {{ $course->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
             </div>
             <div class="d-flex justify-content-end col-lg-6">
                 <div class="m-2">
