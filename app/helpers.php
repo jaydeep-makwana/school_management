@@ -46,7 +46,10 @@ function timeFormat($time)
     return Carbon::parse($time)->format('g:i A');
 }
 
-
+function manageOperator($searchData)
+{
+    return $searchData ? '=' : '!=';
+}
 
 function daysToGo($dob)
 {

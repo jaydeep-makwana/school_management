@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use App\Models\Course;
 use App\Models\Student;
-use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -22,10 +21,16 @@ class StudentTable extends Component
     public $endsAt;
     public $courses;
     public $courseId;
+    public $gender;
 
     public function mount()
     {
         $this->courses = Course::all();
+    }
+
+    public function gender($value)
+    {
+        $this->gender = $value === Student::GENDER[Student::MALE] ? Student::MALE : Student::FEMALE;
     }
 
     public function deleteConfirmation($id): void
@@ -45,17 +50,26 @@ class StudentTable extends Component
         $startsAt =  $this->startsAt;
         $endsAt =  $this->endsAt;
         $courseId =  $this->courseId;
+        $gender =  $this->gender;
 
-        if (!empty($startsAt) && !empty($endsAt) && !empty($courseId)) {
-            $students = Student::with('courses')->where('full_name', 'like', '%' . $search . '%')->whereBetween('start_batch_time', [$startsAt, $endsAt])->whereBetween('end_batch_time', [$startsAt, $endsAt])->where('course_id', 'like', $this->courseId)->paginate(10);
-        } elseif (!empty($startsAt) && !empty($endsAt)) {
-            $students = Student::with('courses')->where('full_name', 'like', '%' . $search . '%')->whereBetween('start_batch_time', [$startsAt, $endsAt])->whereBetween('end_batch_time', [$startsAt, $endsAt])->paginate(10);
-        } elseif (!empty($courseId)) {
-            $students = Student::with('courses')->where('full_name', 'like', '%' . $search . '%')->where('course_id', 'like', $this->courseId)->paginate(10);
-        } else {
-            $students = Student::with('courses')->where('full_name', 'like', '%' . $search . '%')->paginate(10);
+        $students = Student::with('courses')
+            ->where('full_name', 'like', '%' . $search . '%')
+            ->where('course_id', manageOperator($courseId), $courseId)
+            ->where('gender', manageOperator($gender), $gender)
+            ->paginate(10);
+
+        if (!empty($startsAt) && !empty($endsAt)) {
+            $students = Student::with('courses')
+                ->where('full_name', 'like', '%' . $search . '%')
+                ->where('course_id', manageOperator($courseId), $courseId)
+                ->where('gender', manageOperator($gender), $gender)
+                ->whereBetween('start_batch_time', [$startsAt, $endsAt])
+                ->whereBetween('end_batch_time', [$startsAt, $endsAt])
+                ->paginate(10);
         }
 
-        return view('livewire.student-table', compact('students'));
+        $searchResult = $students->total();
+
+        return view('livewire.student-table', compact('students', 'searchResult'));
     }
 }

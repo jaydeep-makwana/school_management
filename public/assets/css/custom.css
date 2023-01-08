@@ -55,3 +55,12 @@ input::-webkit-inner-spin-button {
 tr:hover {
     background-color: rgb(242, 242, 242);
 }
+
+
+.glow-male-icon {
+    text-shadow:  0 0 30px #0000ff, 0 0 30px #0000ff, 0 0 30px #0000ff;
+}
+
+.glow-female-icon {
+    text-shadow:  0 0 30px #e520ff, 0 0 30px #e520ff, 0 0 30px #e520ff;
+}

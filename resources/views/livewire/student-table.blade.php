@@ -1,6 +1,10 @@
 <div>
     <div class="table-responsive container-fluid">
-
+        @if ($search || ($startsAt && $endsAt) || $courseId || $gender)
+            <div class="text-{{ $searchResult !== 0 ? 'success' : 'danger' }} fs-5 fw-bold" role="alert">
+                Results: {{ $searchResult }}
+            </div>
+        @endif
         <div class="row">
 
             <div class="d-flex justify-content-start col-lg-6">
@@ -17,7 +21,8 @@
                 </div>
 
                 <div class="m-2">
-                    <select wire:model="courseId" name="course_id" class="form-control" id="course" title="Sort By Course">
+                    <select wire:model="courseId" name="course_id" class="form-control" id="course"
+                        title="Sort By Course">
                         <option value="" selected>Sort By Course</option>
                         @foreach ($courses as $course)
                             <option value="{{ $course->id }}"
@@ -27,7 +32,20 @@
                         @endforeach
                     </select>
                 </div>
-
+                <div class="m-2">
+                    <div class="btn-group" aria-label="Basic example">
+                        <a type="button" class="m-1" wire:click="gender('M')">
+                            <i class="bi bi-gender-male text-primary fs-5 
+                            {{ $gender === App\Models\Student::MALE ? 'glow-male-icon' : '' }}">
+                        </i>
+                        </a>
+                        <a type="button" class="m-1" wire:click="gender('F')">
+                            <i class="bi bi-gender-female text-pink fs-5 
+                            {{ $gender === App\Models\Student::FEMALE ? 'glow-female-icon' : '' }}">
+                        </i>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="d-flex justify-content-end col-lg-6">
                 <div class="m-2">
