@@ -41,6 +41,8 @@
                             </td>
                         @elseif(paidAmount($student->id) == $student->net_fees)
                             <td>
+                                <a type="button" class="m-1" wire:click="showTransactions({{ $student->id }})">
+                                    <i class="bi bi-info-square fs-5 text-primary" title="Fees History"></i></a>
                                 <i class="bi bi-check2-square fs-5 text-success" title="Paid"></i>
                             </td>
                         @else
