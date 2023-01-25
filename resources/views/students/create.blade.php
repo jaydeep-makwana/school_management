@@ -197,7 +197,7 @@
                         @enderror
                     </span>
                 </div>
-                
+
                 <h6>Duration :</h6>
                 <div class="form-floating mb-3">
                     <input type="date" name="start_date" class="form-control"

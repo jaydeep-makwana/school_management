@@ -90,7 +90,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6">
+                        <td colspan="7">
                             <div class="alert alert-warning m-0" role="alert">
                                 No Records Found
                             </div>
