@@ -97,9 +97,8 @@
                 </a>
             </div>
 
-
             <div class="col-xl-3 col-sm-6 col-12 mb-4">
-                <a href="{{ route('birthdays') }}" class="text-decoration-none text-dark">
+                <a href="{{ route('birthdays', ['type' => 'todays']) }}" class="text-decoration-none text-dark">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between px-md-1">
@@ -117,7 +116,7 @@
             </div>
 
             <div class="col-xl-3 col-sm-6 col-12 mb-4">
-                <a href="{{ route('birthdays') }}" class="text-decoration-none text-dark">
+                <a href="{{ route('birthdays', ['type' => 'upcoming']) }}" class="text-decoration-none text-dark">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between px-md-1">

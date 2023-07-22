@@ -41,7 +41,9 @@ class StudentTable extends Component
 
     public function deleteStudent(): void
     {
-        Student::find($this->deleteId)->delete();
+        $student = Student::find($this->deleteId);
+        $student->studentFees()->delete();
+        $student->delete();
     }
 
     public function render()

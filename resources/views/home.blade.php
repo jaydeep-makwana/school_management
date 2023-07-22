@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="{{ asset('assets/images/logo.png') }}"/>
+    <link rel="icon" href="{{ imageUrl('favicon') }}"/>
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" >
     <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" >
     <title>Home</title>
@@ -75,7 +75,7 @@
 
             </div>
         </div>
- 
+
 
 
         <footer class="text-center bg-primary text-light w-100 align-middle p-2">

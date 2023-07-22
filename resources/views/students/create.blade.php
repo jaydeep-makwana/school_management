@@ -189,7 +189,7 @@
 
                 <div class="form-floating mb-3">
                     <input type="number" placeholder="Fees" name="fees" class="form-control fees"
-                        value="{{ old('fees') ?? ($student->fees ?? old('fees')) }}" id="inputFees">
+                        value="{{ old('fees') ?? ($student->fees ?? old('fees')) }}" id="inputFees" step="0.01">
                     <label for="inputFees" class="form-check-label">Fees</label>
                     <span class="text-danger">
                         @error('fees')
@@ -236,7 +236,7 @@
                 <div class="form-floating mb-3">
                     <input type="number" placeholder="Discount (Optional)" name="discount"
                         class="form-control discount"
-                        value="{{ old('discount') ?? ($student->discount ?? old('discount')) }}" id="inputDiscount">
+                        value="{{ old('discount') ?? ($student->discount ?? old('discount')) }}" id="inputDiscount"  step="0.01">
                     <label for="inputDiscount" class="form-check-label">Discount</label>
                     <span class="text-danger">
                         @error('discount')
@@ -275,7 +275,7 @@
 
                 <div class="form-floating mb-3">
                     <input type="number" readonly placeholder="Net Fees" name="net_fees" class="form-control net-fees"
-                        value="{{ old('net_fees') ?? ($student->net_fees ?? old('net_fees')) }}">
+                        value="{{ old('net_fees') ?? ($student->net_fees ?? old('net_fees')) }}" >
                     <label for="inputNet_Fees" class="form-check-label">Net Fees</label>
                     <span class="text-danger">
                         @error('net_fees')

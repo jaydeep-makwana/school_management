@@ -57,4 +57,7 @@ Route::middleware(AdminLogout::class)->group(function () {
     });
 
     Route::get('birthdays', [BirthdayController::class, 'birthdays'])->name('birthdays');
+
+    Route::get('settings', [UserController::class, 'setting'])->name('settings');
+    Route::post('settings', [UserController::class, 'updateSetting'])->name('update.settings');
 });

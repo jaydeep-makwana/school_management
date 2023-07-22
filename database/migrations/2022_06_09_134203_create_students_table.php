@@ -26,14 +26,14 @@ class CreateStudentsTable extends Migration
             $table->text('cast');
             $table->foreignId('course_id')->references('id')->on('courses');
             $table->text('authorization');
-            $table->integer('fees');
+            $table->double('fees');
             $table->date('start_date');
             $table->date('end_date');
-            $table->integer('discount')->nullable();
+            $table->double('discount')->nullable();
             $table->text('discount_offer')->nullable();
             $table->time('start_batch_time');
             $table->time('end_batch_time');
-            $table->integer('net_fees');
+            $table->double('net_fees');
             $table->date('join_date');
             $table->text('parent_name');
             $table->bigInteger('parent_contact');

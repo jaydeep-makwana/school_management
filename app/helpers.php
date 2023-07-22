@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Fees;
+use App\Models\Setting;
 use App\Models\Student;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
@@ -13,7 +14,7 @@ function paidAmount($id)
 function dueAmount($id)
 {
     $student = Student::find($id);
-    
+
     return $student->net_fees - paidAmount($id);
 }
 
@@ -65,4 +66,14 @@ function daysToGo($dob)
     } else {
         return '5 days to go';
     }
+}
+
+function imageUrl($key)
+{
+    $value = Setting::where('key', $key)->first()->value;
+    if (empty($value)) {
+        return asset('assets/images/' . $key . '.png');
+    }
+
+    return $value;
 }

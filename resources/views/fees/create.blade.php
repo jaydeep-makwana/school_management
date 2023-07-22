@@ -43,7 +43,7 @@
 
                 <div class="form-floating mb-3 mt-3">
                     <input type="number" placeholder="Full Name" name="amount" class="form-control"
-                        value="{{ old('amount') }}">
+                        value="{{ old('amount') }}"  step="0.01">
                     <label for="inputName" class="form-check-label">Enter Amount</label>
                     <span class="text-danger">
                         @error('amount')
@@ -54,7 +54,7 @@
 
                 <div class="form-floating mb-3 mt-3">
                     <input type="number" placeholder="Full Name" name="confirm_amount" class="form-control"
-                        value="{{ old('confirm_amount') }}">
+                        value="{{ old('confirm_amount') }}"  step="0.01">
                     <label for="inputName" class="form-check-label">Confirm Amount</label>
                     <span class="text-danger">
                         @error('confirm_amount')

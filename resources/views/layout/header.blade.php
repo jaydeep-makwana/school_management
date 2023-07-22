@@ -30,12 +30,17 @@
                     <i class="fa fa-birthday-cake fs-5 me-3"></i><span>Birthdays</span>
                     @if (!Request::is('birthdays'))
                         @if (count(returnBirthdays()) > 0)
-                            <span class="badge bg-success">{{  count(returnBirthdays()) }}</span>
+                            <span class="badge bg-success">{{ count(returnBirthdays()) }}</span>
                         @endif
                         @if (count(returnUpcomingBirthdays()) > 0)
                             <span class="badge bg-warning text-dark">{{ count(returnUpcomingBirthdays()) }}</span>
                         @endif
                     @endif
+                </a>
+                <a href="{{ route('settings') }}"
+                    class="list-group-item list-group-item-action py-2 {{ Request::is('settings*') ? 'active' : '' }}"
+                    aria-current="true">
+                    <i class="bi bi-gear-fill me-3"></i><span>Setting</span>
                 </a>
             </div>
         </div>
@@ -54,7 +59,7 @@
 
             <!-- Brand -->
             <a class="navbar-brand" href="#">
-                <img src="{{ asset('assets/images/angel.png') }}" height="40" alt="something went wrong" />
+                <img src="{{ imageUrl('logo') }}" height="40" alt="something went wrong" />
             </a>
 
             <!-- Right links -->
@@ -63,7 +68,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
                         id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ asset('assets/images/admin.png') }}" class="rounded-circle img-thumbnail"
+                        <img src="{{ imageUrl('profile') }}" class="rounded-circle img-thumbnail"
                             width="35" alt="something went wrong" />
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
