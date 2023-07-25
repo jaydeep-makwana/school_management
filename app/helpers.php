@@ -77,3 +77,8 @@ function imageUrl($key)
 
     return $value;
 }
+
+function getSettingValue($key)
+{
+    return Setting::where('key', $key)->first()->value;
+}

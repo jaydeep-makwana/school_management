@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="{{ imageUrl('favicon') }}"/>
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" >
-    <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" >
+    <link rel="icon" href="{{ imageUrl('favicon') }}" />
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet">
     <title>Home</title>
 </head>
 
 <body>
-
 
     <div class="container-fluid h-100">
         <nav class="navbar navbar-expand-lg">
@@ -58,7 +57,8 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <!-- Checkbox -->
                         <div class="form-check mb-0">
-                            <input class="form-check-input me-2" type="checkbox" value="1" name="remember_me" id="form2Example3" />
+                            <input class="form-check-input me-2" type="checkbox" value="1" name="remember_me"
+                                id="form2Example3" />
                             <label class="form-check-label" for="form2Example3">
                                 Remember me
                             </label>
@@ -76,10 +76,8 @@
             </div>
         </div>
 
-
-
         <footer class="text-center bg-primary text-light w-100 align-middle p-2">
-            Copyright © 2022 Angel Multimedia Institute | Powered by Angel Multimedia Institute.
+            Copyright © {{ date('Y') }} | {{ getSettingValue('footer_content') }}
         </footer>
 
     </div>

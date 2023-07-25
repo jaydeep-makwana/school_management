@@ -37,6 +37,9 @@
     <!--Main layout-->
     <input type="hidden" value="{{ csrf_token() }}" id="token">
 
+    <footer class="text-center bg-primary text-light w-100 align-middle p-2">
+        Copyright © {{ date('Y') }} | {{ getSettingValue('footer_content') }}
+    </footer>
     @livewireScripts
     <!-- JQuery -->
     <script src="{{ asset('assets/js/jquery-3.6.1.min.js') }}"></script>

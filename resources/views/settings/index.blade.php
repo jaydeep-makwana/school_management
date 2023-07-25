@@ -44,8 +44,15 @@
                 <input type="file" name="favicon" id="faviconImage" class="form-control">
             </div>
         </div>
-        <div class="text-center mt-5">
-            <input type="submit" value="Save" class="btn btn-primary align-item-middle">
+
+        <div class="row mt-3">
+            <div class="col-lg-8">
+                <label for="" class="float-start font-weight-bold">Footer Content:</label>
+                <input type="text" name="footer_content" class="form-control" value="{{ getSettingValue('footer_content') }}">
+            </div>
+            <div class="text-center mt-4 col-lg-4">
+                <input type="submit" value="Save" class="btn btn-primary align-item-middle w-25">
+            </div>
         </div>
     </form>
 @endsection

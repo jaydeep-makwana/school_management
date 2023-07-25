@@ -17,11 +17,7 @@ class UserController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-
-            session()->put('id', Auth::id());
-            if ($request->remember_me) {
-                Cookie::queue('id', session('id'), 60 * 24 * 30);
-            }
+            $request->session()->regenerate();
 
             return redirect('/dashboard');
         }
@@ -33,15 +29,9 @@ class UserController extends Controller
 
     public function logout()
     {
-        if (session()->has('id')) {
-            session()->pull('id');
+        Auth::logout();
 
-            if (Cookie::get('id')) {
-                Cookie::queue(Cookie::forget('id'));
-            }
-
-            return redirect('/');
-        }
+        return redirect('/');
     }
 
     public function setting()
@@ -66,6 +56,10 @@ class UserController extends Controller
             $img_path = $request->file('logo')->storeAs('images', $fileName, 'public');
             Setting::where('key', 'logo')->update(['value' => asset($img_path)]);
         }
+        if (!empty($request->footer_content)) {
+            Setting::where('key', 'footer_content')->update(['value' => $request->footer_content]);
+        }
+
 
         return redirect()->back();
     }
