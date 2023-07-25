@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class CourseController extends Controller
 {
@@ -25,14 +21,10 @@ class CourseController extends Controller
 
     public function store(Request $request)
     {
-
-        $request->validate([
-            'course_name' => 'required|unique:courses,name',
+        $input = $request->validate([
+            'name' => 'required|unique:courses,name',
         ]);
-
-        DB::table('courses')->insert([
-            'name' => $request->course_name,
-        ]);
+        Course::create($input);
 
         return redirect(route('courses.index'));
     }
@@ -46,13 +38,10 @@ class CourseController extends Controller
 
     public function update($id, Request $request)
     {
-        $request->validate([
-            'course_name' => 'required|unique:courses,name,'.$id,
+        $input = $request->validate([
+            'name' => 'required|unique:courses,name,' . $id,
         ]);
-       
-        DB::table('courses')->where('id', $id)->update([
-            'name' => $request->course_name,
-        ]);
+        Course::where('id', $id)->update($input);
 
         return  redirect(route('courses.index'));
     }

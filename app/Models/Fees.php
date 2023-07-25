@@ -10,5 +10,9 @@ class Fees extends Model
     use HasFactory;
 
     protected $fillable = ['student_id', 'amount', 'date'];
- 
+
+    public static array $rules = [
+        'amount' => 'required|lte:payable_fees',
+        'confirm_amount' => 'required|same:amount',
+    ];
 }

@@ -20,12 +20,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'home')->middleware('adminlogin');
+Route::view('/', 'home')->middleware('guest');
 
 Route::post('login', [UserController::class, 'login']);
 Route::get('logout', [UserController::class, 'logout']);
 
-Route::middleware(AdminLogout::class)->group(function () {
+Route::middleware('auth')->group(function () {
 
     Route::get('dashboard', [DashboardController::class, 'index']);
 

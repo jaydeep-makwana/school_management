@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Fees;
+use App\Models\Student;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreFeesRequest extends FormRequest
+class StoreStudentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +24,6 @@ class StoreFeesRequest extends FormRequest
      */
     public function rules()
     {
-        return Fees::$rules;
+        return Student::$rules;
     }
 }

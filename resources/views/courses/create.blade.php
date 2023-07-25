@@ -15,11 +15,11 @@
         @endif
 
         <div class="form-floating mb-3 mt-3">
-            <input type="text" placeholder="Full Name" name="course_name" class="form-control"
-                value="{{ old('course_name') ?? ($course->name ?? old('course_name')) }}">
+            <input type="text" placeholder="Full Name" name="name" class="form-control"
+                value="{{ old('name') ?? ($course->name ?? old('name')) }}">
             <label for="inputName" class="form-check-label">Course Name</label>
             <span class="text-danger">
-                @error('course_name')
+                @error('name')
                     {{ $message }}
                 @enderror
             </span>

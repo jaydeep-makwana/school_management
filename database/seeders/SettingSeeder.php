@@ -23,6 +23,10 @@ class SettingSeeder extends Seeder
             ],
             [
                 'key' => 'favicon',
+            ],
+            [
+                'key' => 'footer_content',
+                'value' => 'Powered by Student Management Institute.',
             ]
         ];
 

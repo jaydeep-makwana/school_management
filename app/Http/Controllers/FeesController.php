@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreFeesRequest;
 use App\Models\Fees;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class FeesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
+    {
         return view('fees.index');
     }
 
@@ -37,18 +38,11 @@ class FeesController extends Controller
      * @param  \App\Http\Requests\StoreFeesRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(StoreFeesRequest $request, $id)
     {
-        $request->validate([
-            'amount' => 'required|lte:payable_fees',
-            'confirm_amount' => 'required|same:amount',
-        ]);
-
-        Fees::create([
-            'student_id' => $id,
-            'amount' => $request->amount,
-            'date' => $request->date,
-        ]);
+        $input = $request->all();
+        $input['student_id'] = $id;
+        Fees::create($input);
 
         return redirect(route('fees.index'));
     }
