@@ -45,6 +45,15 @@ class StudentTable extends Component
         $student->delete();
     }
 
+    public function resetFilter(): void
+    {
+        $this->search = '';
+        $this->startsAt = '';
+        $this->endsAt = '';
+        $this->courseId = '';
+        $this->gender = '';
+    }
+
     public function render()
     {
         $search =  $this->search;

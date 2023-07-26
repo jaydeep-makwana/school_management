@@ -3,6 +3,7 @@
         @if ($search || ($startsAt && $endsAt) || $courseId || $gender)
             <div class="text-{{ $searchResult !== 0 ? 'success' : 'danger' }} fs-5 fw-bold" role="alert">
                 Results: {{ $searchResult }}
+                <a href="javascript:void(0)" wire:click="resetFilter()"><i class="bi bi-x-square-fill ms-1 fs-4 text-danger"></i></a>
             </div>
         @endif
         <div class="row">
@@ -35,12 +36,12 @@
                 <div class="m-2">
                     <div class="btn-group" aria-label="Basic example">
                         <a type="button" class="m-1" wire:click="gender('M')">
-                            <i class="bi bi-gender-male text-primary fs-5 
+                            <i class="bi bi-gender-male text-primary fs-5
                             {{ $gender === App\Models\Student::MALE ? 'glow-male-icon' : '' }}">
                         </i>
                         </a>
                         <a type="button" class="m-1" wire:click="gender('F')">
-                            <i class="bi bi-gender-female text-pink fs-5 
+                            <i class="bi bi-gender-female text-pink fs-5
                             {{ $gender === App\Models\Student::FEMALE ? 'glow-female-icon' : '' }}">
                         </i>
                         </a>

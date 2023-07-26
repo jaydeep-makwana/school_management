@@ -79,10 +79,11 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateStudentRequest $request, Student $student)
+    public function update(UpdateStudentRequest $request, $id)
     {
         $input = $request->all();
-        $student->update($input);
+        unset($input['_token'], $input['_method']);
+        Student::where('id', $id)->update($input);
 
         return redirect(route('students.index'));
     }
